@@ -13,6 +13,7 @@ O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do
 # Slides
 
 - [Link do google slides](https://docs.google.com/presentation/d/1zOGQ5nJoz8DNAa526JGh_O6kWnHknH2vmegufPo-zCw/edit?usp=sharing)
+- [View slides as PDF](./assets/slides/atlas_resistencia.pdf)
 
 
 # Fundamentação Teórica
@@ -52,7 +53,7 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 
 # Modelo Lógico
 
-![image1](images/modelo-logico-grafos.png)
+![image1](assets/images/modelo-logico-grafos.png)
 
 > ### **Gene**
 >
