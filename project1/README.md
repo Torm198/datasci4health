@@ -116,7 +116,7 @@ Utilizaremos dados brutos de contagem (read counts) de sequenciamento de RNA (RN
 
 #### **2\. Análise de Expressão Diferencial (Fold-Change)**
 
-Para identificar os genes que respondem ao antibiótico, utilizaremos métodos estatísticos como testes de hipóteses e modelos lineares para comparação da expressão dos mesmos. Definindo uma referência para uma comparação direta entre os grupos de interesse e testar se a diferença na expressão de cada gene é maior do que o esperado pelo acaso. O critério de seleção para os genes que farão parte da rede será o **$\bold{log_{2}}$ Fold-Change (LFC)**. Filtrando apenas os genes com |LFC| estatisticamente significantes, garantindo que a rede represente a resposta biológica real ao estresse e não o ruído metabólico basal.
+Para identificar os genes que respondem ao antibiótico, utilizaremos métodos estatísticos como testes de hipóteses e modelos lineares para comparação da expressão dos mesmos. Definindo uma referência para uma comparação direta entre os grupos de interesse e testar se a diferença na expressão de cada gene é maior do que o esperado pelo acaso. O critério de seleção para os genes que farão parte da rede será o **${log_{2}}$ Fold-Change (LFC)**. Filtrando apenas os genes com |LFC| estatisticamente significantes, garantindo que a rede represente a resposta biológica real ao estresse e não o ruído metabólico basal.
 
 #### **3\. Construção da Rede de Coexpressão**
 
