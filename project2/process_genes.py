@@ -240,7 +240,7 @@ if __name__ == "__main__":
     # =========================
     df_pa = pd.read_excel(os.path.join(script_dir, "GSE167137_P_aeruginosa_count_data.xlsx"))
 
-    control_pa = [c for c in df_pa.columns if "-0M-" in c]
-    treated_pa = [c for c in df_pa.columns if "-5M-" in c]
+    control_pa = [c for c in df_pa.columns if "PA-0M-" in c]
+    treated_pa = [c for c in df_pa.columns if "PA-5M-" in c]
 
     run_analysis(df_pa, "Unnamed: 0", control_pa, treated_pa, "pa")
