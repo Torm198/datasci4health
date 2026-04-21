@@ -70,7 +70,7 @@ def get_top_genes(results):
 
 def export_expression(df, prefix):
     script_dir = os.path.dirname(__file__)
-    path_to_save = os.path.join(script_dir, f"{prefix}_top_genes.csv")
+    path_to_save = os.path.join(script_dir, f"../data/interim/{prefix}_top_genes.csv")
     df[["log2FoldChange", "padj"]].to_csv(path_to_save, index=True)
 
 
@@ -202,7 +202,7 @@ if __name__ == "__main__":
     # =========================
     # 1. KLEBSIELLA
     # =========================
-    df_kleb = safe_read_csv(os.path.join(script_dir, "GSE307523_gene_fpkm.txt.gz"))
+    df_kleb = safe_read_csv(os.path.join(script_dir, "../data/raw/GSE307523_gene_fpkm.txt.gz"))
 
     control_kleb = ["NK01067-1_Count","NK01067-2_Count","NK01067-3_Count"]
     treated_kleb = ["NK01067-MEM-1_Count","NK01067-MEM-2_Count","NK01067-MEM-3_Count"]
@@ -213,7 +213,7 @@ if __name__ == "__main__":
     # =========================
     # 2. ACINETOBACTER
     # =========================
-    df_aci = safe_read_csv(os.path.join(script_dir, "GSE190441_Complete_Raw_gene_counts_matrix.txt.gz"))
+    df_aci = safe_read_csv(os.path.join(script_dir, "../data/raw/GSE190441_Complete_Raw_gene_counts_matrix.txt.gz"))
 
     cols_3h = [c for c in df_aci.columns if c.startswith("3h_")]
     df_aci = df_aci[["Name"] + cols_3h]
@@ -238,7 +238,7 @@ if __name__ == "__main__":
     # =========================
     # 3. PSEUDOMONAS
     # =========================
-    df_pa = pd.read_excel(os.path.join(script_dir, "GSE167137_P_aeruginosa_count_data.xlsx"))
+    df_pa = pd.read_excel(os.path.join(script_dir, "../data/raw/GSE167137_P_aeruginosa_count_data.xlsx"))
 
     control_pa = [c for c in df_pa.columns if "PA-0M-" in c]
     treated_pa = [c for c in df_pa.columns if "PA-5M-" in c]
