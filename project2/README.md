@@ -148,25 +148,25 @@ Os principais passos realizados foram:
 
 ### *Klebsiella pneumoniae*
 
-* Ativação de reguladores globais (ex: *marA*)
-* Ajustes metabólicos e proteção osmótica
-* Indícios de transição para estados persistentes
+* 🟥 Ativação de reguladores globais (ex: *marA*)
+* 🟥 Proteção osmótica
+* 🟦 Ajustes metabólicos e indícios de transição para estados persistentes
 
 ![image2](./assets/pictures/kleb.jpg)
 
 ### *Acinetobacter baumannii*
 
-* Redução da permeabilidade da membrana
-* Ativação de mecanismos de resposta a dano no DNA (SOS)
-* Presença de genes altamente conectados ainda não caracterizados
+* 🟦 Redução da permeabilidade da membrana
+* 🟥 Ativação de mecanismos de resposta a dano no DNA (SOS)
+* 🟥 Presença de genes altamente conectados ainda não caracterizados
 
 ![image3](./assets/pictures/aci.jpg)
 
 ### *Pseudomonas aeruginosa*
 
-* Forte ativação de enzimas degradadoras de antibióticos (ex: beta-lactamases)
-* Ativação de sistemas de competição bacteriana (T6SS)
-* Repressão de mecanismos que poderiam levar à autodestruição celular
+* 🟥 Forte ativação de enzimas degradadoras de antibióticos (ex: beta-lactamases)
+* 🟥 Ativação de sistemas de competição bacteriana (T6SS)
+* 🟦 Repressão de mecanismos que poderiam levar à autodestruição celular
 
 ![image3](./assets/pictures/pa.jpg)
 
