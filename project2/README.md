@@ -12,7 +12,7 @@ O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do
 
 # Slides 
 
-TODO
+Disponível neste [link](https://docs.google.com/presentation/d/1d2H6rdWFHeNa34FSrNmZf1_DYucKheZhWZA8VMZwR-w/edit?usp=drivesdk)
 
 # Fundamentação Teórica
 
