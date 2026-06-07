@@ -1,0 +1,364 @@
+ID	gene_name	Especie	KO	LFC	DE	node_type	top_pathway
+NP_251667.1	murB	pseu	K00075	0.1590177000187314	yes	gene	Peptidoglycan biosynthesis
+YP_001085079.1	murB	aci	K00075	-0.218441664741432	yes	gene	Peptidoglycan biosynthesis
+WP_004873277.1	murB	kleb	K00075	1.090210366662431	yes	gene	Peptidoglycan biosynthesis
+NP_249041.1	folA	pseu	K00287	-0.11927784812221631	yes	gene	Folate biosynthesis
+YP_001083514.1	A1S_0457	aci	K00287	-0.07899068137071019	yes	gene	Folate biosynthesis
+WP_002888320.1	folA	kleb	K00287	2.0560412552538683	yes	gene	Folate biosynthesis
+NP_248708.1	fmt	pseu	K00604	0.07640738234511701	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001086447.1	A1S_3456	aci	K00604	-0.21958793234454532	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004150007.1	fmt	kleb	K00604	1.7505518568022485	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252334.1	lpxA	pseu	K00677	0.07740010789133578	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001084994.1	A1S_1965	aci	K00677	-0.445166704526077	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004178647.1	lpxA	kleb	K00677	1.280181111558302	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253438.1	folP	pseu	K00796	0.40805867534347584	yes	gene	Folate biosynthesis
+YP_001085695.1	A1S_2680	aci	K00796	0.04059584026499863	yes	gene	Folate biosynthesis
+WP_004149935.1	folP	kleb	K00796	1.076354902253387	yes	gene	Folate biosynthesis
+NP_252342.1	uppS	pseu	K00806	0.09271712815506739	yes	gene	Peptidoglycan biosynthesis
+YP_001085002.1	A1S_1973	aci	K00806	-0.1101318103231872	yes	gene	Peptidoglycan biosynthesis
+WP_002889316.1	ispU	kleb	K00806	1.4161255804117099	yes	gene	Peptidoglycan biosynthesis
+NP_249274.1	PA0583	pseu	K00950	-0.2734510453636787	yes	gene	Folate biosynthesis
+NP_253416.1	folK	pseu	K00950	-0.5142856243909719	yes	gene	Folate biosynthesis
+YP_001083637.1	A1S_0584	aci	K00950	-0.01798679898914557	yes	gene	Folate biosynthesis
+WP_021467518.1	folK	kleb	K00950	2.9146936076022065	yes	gene	Folate biosynthesis
+NP_253105.1	mraY	pseu	K01000	0.7033264924143747	yes	gene	Peptidoglycan biosynthesis
+YP_001086195.1	A1S_3200	aci	K01000	-0.018410789606665645	yes	gene	Peptidoglycan biosynthesis
+YP_001086196.1	A1S_3201	aci	K01000	-0.017656716036217546	yes	gene	Peptidoglycan biosynthesis
+WP_002888562.1	mraY	kleb	K01000	2.1296055224064263	yes	gene	Peptidoglycan biosynthesis
+NP_253496.1	selA	pseu	K01042	0.4556493780041997	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004186109.1	selA	kleb	K01042	4.6020628748235355	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_251986.1	phoA	pseu	K01077	-0.11441848579642411	yes	gene	Folate biosynthesis
+WP_004147286.1	phoA	kleb	K01077	1.3401162151306005	yes	gene	Folate biosynthesis
+NP_253634.1	amiB	pseu	K01448	0.047914596481870575	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_254225.1	amiA	pseu	K01448	-0.18283125091353725	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004174538.1	amiC	kleb	K01448	2.2140607226847004	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_250365.1	folE2	pseu	K01495	0.0174805614519844	yes	gene	Folate biosynthesis
+NP_252128.1	folE1	pseu	K01495	0.26430649370493065	yes	gene	Folate biosynthesis
+YP_001085387.1	A1S_2366	aci	K01495	-0.16042088447503744	yes	gene	Folate biosynthesis
+WP_002912924.1	folE	kleb	K01495	3.2813413627211583	yes	gene	Folate biosynthesis
+NP_252736.1	ribA	pseu	K01497	-0.1863809656376425	yes	gene	Folate biosynthesis
+YP_001086106.1	ribA	aci	K01497	-0.12015481774023762	yes	gene	Folate biosynthesis
+WP_002901778.1	ribA	kleb	K01497	-1.1597537528558872	yes	gene	Folate biosynthesis
+NP_250449.1	pabB	pseu	K01665	-0.08190202289768322	yes	gene	Folate biosynthesis
+YP_001083735.1	A1S_0689	aci	K01665	-0.23128912420265202	yes	gene	Folate biosynthesis
+WP_004189289.1	pabB	kleb	K01665	1.2662210676426664	yes	gene	Folate biosynthesis
+NP_251356.1	PA2666	pseu	K01737	-0.17147685052853312	yes	gene	Folate biosynthesis
+YP_001084595.1	A1S_1566	aci	K01737	0.14271285715607718	yes	gene	Folate biosynthesis
+WP_004174641.1	queD	kleb	K01737	1.6735267772072548	yes	gene	Folate biosynthesis
+NP_249359.1	tyrZ	pseu	K01866	-0.19678509670800715	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252827.1	tyrS	pseu	K01866	-0.7454941575952478	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083113.1	A1S_0014	aci	K01866	-0.25688650255961853	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002907740.1	tyrS	kleb	K01866	1.0457783430788359	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_253129.1	trpS	pseu	K01867	0.17224665681398932	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001085735.1	A1S_2720	aci	K01867	-0.20966782977311915	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_025862024.1	trpS	kleb	K01867	-1.2768489786693245	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002920253.1	trpS	kleb	K01867	-1.2768489786693245	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_251434.1	thrS	pseu	K01868	0.11968696930204814	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083645.1	A1S_0592	aci	K01868	-0.2169261369662241	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002910026.1	thrS	kleb	K01868	1.35123059116557	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004150566.1	thrS	kleb	K01868	1.35123059116557	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252676.1	leuS	pseu	K01869	-0.056697083144008786	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083596.1	A1S_0541	aci	K01869	-0.20518929726652502	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083597.1	A1S_0542	aci	K01869	-0.19481856527922048	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004147581.1	leuS	kleb	K01869	2.8428760960293413	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_249594.1	alaS	pseu	K01872	-0.0006208723792813231	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001084208.1	alaS	aci	K01872	0.03924431757751279	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_032443961.1	alaS	kleb	K01872	1.3179328300535849	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252172.1	metG	pseu	K01874	-0.0166440135313195	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083820.1	metG	aci	K01874	-0.12728755371504974	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_025862117.1	metG	kleb	K01874	1.0274367844949124	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_249654.1	aspS	pseu	K01876	-0.038002929103146954	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001085902.1	aspS	aci	K01876	-0.20805071111193385	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002911479.1	aspS	kleb	K01876	2.1402669710288764	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_064729.1	glyQ	pseu	K01878	-0.2681390162750219	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001086117.1	glyQ	aci	K01878	0.0429802555189287	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002922128.1	glyQ	kleb	K01878	3.128874144420222	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_064728.1	glyS	pseu	K01879	0.06691749208640196	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001086118.1	glyS	aci	K01879	-0.049239251798681494	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004150153.1	glyS	kleb	K01879	2.3439180353159905	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_249647.1	proS	pseu	K01881	-0.1323276962095754	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001085827.1	A1S_2819	aci	K01881	-0.20788843953923752	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004147169.1	proS	kleb	K01881	3.2329287934905393	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_250485.1	glnS	pseu	K01886	-0.01313698306928579	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001085137.1	A1S_2108	aci	K01886	-0.16790695154655744	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002894753.1	glnS	kleb	K01886	1.8198105395457662	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_253738.1	argS	pseu	K01887	-0.20870477377636298	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004148863.1	argS	kleb	K01887	2.749478379628642	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_251430.1	pheS	pseu	K01889	0.5412292221235457	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083654.1	pheS	aci	K01889	-0.12813185005590455	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002909105.1	pheS	kleb	K01889	1.3286861067595952	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_251429.1	pheT	pseu	K01890	0.703988327532814	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083655.1	pheT	aci	K01890	-0.03987497555161923	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002909101.1	pheT	kleb	K01890	1.5609652585905671	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252491.1	hisS	pseu	K01892	0.522498544101829	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001083558.1	hisS	aci	K01892	0.014938752236616892	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_004149335.1	hisS	kleb	K01892	1.6769843934202893	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_252890.1	ddlA	pseu	K01921	0.509029638769162	yes	gene	Peptidoglycan biosynthesis
+NP_253100.1	ddlB	pseu	K01921	0.7242790974895179	yes	gene	Peptidoglycan biosynthesis
+YP_001086325.1	ddl	aci	K01921	-0.08662417369149189	yes	gene	Peptidoglycan biosynthesis
+WP_004151348.1	ddlA	kleb	K01921	2.1307724742595875	yes	gene	Peptidoglycan biosynthesis
+NP_253104.1	murD	pseu	K01925	0.6936735914529244	yes	gene	Peptidoglycan biosynthesis
+YP_001083322.1	murD	aci	K01925	-0.02320274343922435	yes	gene	Peptidoglycan biosynthesis
+WP_004147075.1	murD	kleb	K01925	1.5293002836014304	yes	gene	Peptidoglycan biosynthesis
+NP_253107.1	murE	pseu	K01928	0.5128599728940628	yes	gene	Peptidoglycan biosynthesis
+YP_001086198.1	A1S_3203	aci	K01928	-0.05722805079528648	yes	gene	Peptidoglycan biosynthesis
+WP_004147071.1	murE	kleb	K01928	2.1710067999768605	yes	gene	Peptidoglycan biosynthesis
+NP_253106.1	murF	pseu	K01929	0.48955255666126796	yes	gene	Peptidoglycan biosynthesis
+YP_001086197.1	A1S_3202	aci	K01929	0.04302045839673596	yes	gene	Peptidoglycan biosynthesis
+WP_004147073.1	murF	kleb	K01929	3.1327208575846894	yes	gene	Peptidoglycan biosynthesis
+NP_253102.1	murG	pseu	K02563	0.7737632821564322	yes	gene	Peptidoglycan biosynthesis
+YP_001086327.1	murG	aci	K02563	0.029726234467590373	yes	gene	Peptidoglycan biosynthesis
+WP_002888566.1	murG	kleb	K02563	1.338424800547232	yes	gene	Peptidoglycan biosynthesis
+NP_252963.1	rplA	pseu	K02863	0.7198795343131366	yes	gene	Ribosome
+YP_001083356.2	rplA	aci	K02863	-0.0403086984367107	yes	gene	Ribosome
+WP_002884036.1	rplA	kleb	K02863	2.8291078332168436	yes	gene	Ribosome
+NP_252962.1	rplJ	pseu	K02864	1.1286831374601256	yes	gene	Ribosome
+YP_001083357.1	A1S_0285	aci	K02864	-0.00442727684196953	yes	gene	Ribosome
+WP_025862008.1	rplJ	kleb	K02864	1.8885902337910156	yes	gene	Ribosome
+NP_252943.1	rplN	pseu	K02874	1.3141514462586539	yes	gene	Ribosome
+YP_001086070.1	rplN	aci	K02874	0.351656321931511	yes	gene	Ribosome
+WP_002919748.1	rplN	kleb	K02874	1.236209558364763	yes	gene	Ribosome
+NP_252946.1	rplP	pseu	K02878	1.237299336498726	yes	gene	Ribosome
+YP_001086073.2	rplP	aci	K02878	0.4537944604461259	yes	gene	Ribosome
+WP_002919759.1	rplP	kleb	K02878	0.8024864625475381	yes	gene	Ribosome
+NP_252927.1	rplQ	pseu	K02879	0.8270503871945927	yes	gene	Ribosome
+YP_001086054.1	rplQ	aci	K02879	0.15601394996725126	yes	gene	Ribosome
+WP_002919206.1	rplQ	kleb	K02879	2.1119910700304985	yes	gene	Ribosome
+NP_252937.1	rplR	pseu	K02881	0.48419102171856565	yes	gene	Ribosome
+YP_001086064.2	rplR	aci	K02881	0.3737590901810055	yes	gene	Ribosome
+WP_000358960.1	rplR	kleb	K02881	1.7234692127512847	yes	gene	Ribosome
+NP_252431.1	rplS	pseu	K02884	0.5960453104561676	yes	gene	Ribosome
+YP_001086160.1	rplS	aci	K02884	-0.03935767691328529	yes	gene	Ribosome
+WP_002914145.1	rplS	kleb	K02884	1.7842691359237777	yes	gene	Ribosome
+NP_252950.1	rplB	pseu	K02886	1.1124843538906894	yes	gene	Ribosome
+YP_001086076.1	rplB	aci	K02886	0.4345451385261434	yes	gene	Ribosome
+WP_002919786.1	rplB	kleb	K02886	2.0903468117541646	yes	gene	Ribosome
+NP_253258.1	rplU	pseu	K02888	0.18139089149140375	yes	gene	Ribosome
+YP_001085746.1	A1S_2731	aci	K02888	-0.02623013386218176	yes	gene	Ribosome
+WP_002918379.1	rplU	kleb	K02888	1.3161192203408199	yes	gene	Ribosome
+NP_252948.1	rplV	pseu	K02890	1.226414928767328	yes	gene	Ribosome
+YP_001086075.2	rplV	aci	K02890	0.4796303313329542	yes	gene	Ribosome
+WP_002919773.1	rplV	kleb	K02890	0.36127976786248084	yes	gene	Ribosome
+NP_252951.1	rplW	pseu	K02892	1.0303062857149143	yes	gene	Ribosome
+YP_001086077.1	rplW	aci	K02892	0.49145356363157155	yes	gene	Ribosome
+WP_000617546.1	rplW	kleb	K02892	2.0886314530954895	yes	gene	Ribosome
+NP_252942.1	rplX	pseu	K02895	1.3907348083616657	yes	gene	Ribosome
+YP_001086069.1	rplX	aci	K02895	0.39869263748457584	yes	gene	Ribosome
+WP_000729185.1	rplX	kleb	K02895	0.5396939380342012	yes	gene	Ribosome
+NP_253360.1	PA4671	pseu	K02897	0.7654126182972725	yes	gene	Ribosome
+YP_001083868.1	A1S_0828	aci	K02897	0.02014900538650899	yes	gene	Ribosome
+WP_002912979.1	rplY	kleb	K02897	2.2592319344674525	yes	gene	Ribosome
+NP_253257.1	rpmA	pseu	K02899	0.39335693965063	yes	gene	Ribosome
+YP_001085745.1	rpmA	aci	K02899	-0.029939540483212568	yes	gene	Ribosome
+WP_002434222.1	rpmA	kleb	K02899	2.9298800701114844	yes	gene	Ribosome
+NP_254003.1	rpmB	pseu	K02902	0.6685761672438968	yes	gene	Ribosome
+YP_001083505.1	rpmB	aci	K02902	0.0503943287922759	yes	gene	Ribosome
+WP_000091955.1	rpmB	kleb	K02902	1.9416135832748793	yes	gene	Ribosome
+NP_252945.1	rpmC	pseu	K02904	1.2522388281212358	yes	gene	Ribosome
+YP_001086072.1	A1S_3073	aci	K02904	0.5437688995649186	yes	gene	Ribosome
+WP_002919754.1	rpmC	kleb	K02904	-0.08776418324345059	yes	gene	Ribosome
+NP_252953.1	rplC	pseu	K02906	0.6691996258356667	yes	gene	Ribosome
+YP_001086079.2	rplC	aci	K02906	0.36813253597154016	yes	gene	Ribosome
+WP_002919796.1	rplC	kleb	K02906	1.8160950723729261	yes	gene	Ribosome
+NP_252935.1	rpmD	pseu	K02907	0.5014572420640437	yes	gene	Ribosome
+YP_001086062.1	rpmD	aci	K02907	0.422335222965474	yes	gene	Ribosome
+WP_001140434.1	rpmD	kleb	K02907	2.196466349118216	yes	gene	Ribosome
+NP_252291.1	PA3601	pseu	K02909	-0.07371886102372649	yes	gene	Ribosome
+NP_253736.1	rpmE	pseu	K02909	0.43076978679663647	yes	gene	Ribosome
+YP_001083452.1	rpmE2	aci	K02909	0.14805556036382583	yes	gene	Ribosome
+YP_001085443.1	rpmE	aci	K02909	-0.13577843739868278	yes	gene	Ribosome
+WP_002882922.1	rpmE	kleb	K02909	2.2856618965940685	yes	gene	Ribosome
+NP_251660.1	rpmF	pseu	K02911	0.6338762134412317	yes	gene	Ribosome
+YP_001083856.1	rpmF	aci	K02911	-0.040057913317960825	yes	gene	Ribosome
+WP_000290724.1	rpmF	kleb	K02911	1.74942594271465	yes	gene	Ribosome
+NP_254257.1	rpmH	pseu	K02914	-0.13973029356332667	yes	gene	Ribosome
+YP_001085989.1	rpmH	aci	K02914	-0.042902383036702574	yes	gene	Ribosome
+WP_000831330.1	rpmH	kleb	K02914	1.2463000841839378	yes	gene	Ribosome
+NP_252290.1	PA3600	pseu	K02919	0.07049857382304303	yes	gene	Ribosome
+NP_252932.1	rpmJ	pseu	K02919	0.9528448245620247	yes	gene	Ribosome
+YP_001086059.1	rpmJ	aci	K02919	0.34860805229511627	yes	gene	Ribosome
+WP_002892018.1	ykgO	kleb	K02919	3.2425692591575612	yes	gene	Ribosome
+NP_252952.1	rplD	pseu	K02926	0.9152544271166967	yes	gene	Ribosome
+YP_001086078.1	rplD	aci	K02926	0.37284426618545297	yes	gene	Ribosome
+WP_002919794.1	rplD	kleb	K02926	2.372756671601781	yes	gene	Ribosome
+NP_252941.1	rplE	pseu	K02931	1.1408522761661644	yes	gene	Ribosome
+YP_001086068.2	rplE	aci	K02931	0.31766802139766526	yes	gene	Ribosome
+WP_001096200.1	rplE	kleb	K02931	1.5237735815595652	yes	gene	Ribosome
+NP_252938.1	rplF	pseu	K02933	0.3922081050432027	yes	gene	Ribosome
+YP_001086065.2	rplF	aci	K02933	0.3527355864934627	yes	gene	Ribosome
+WP_002919662.1	rplF	kleb	K02933	1.381215385098507	yes	gene	Ribosome
+NP_252961.1	rplL	pseu	K02935	1.1996175447492874	yes	gene	Ribosome
+YP_001083358.1	rplL	aci	K02935	0.0748443108071335	yes	gene	Ribosome
+WP_002884142.1	rplL	kleb	K02935	1.1492502817521988	yes	gene	Ribosome
+NP_253619.1	rplI	pseu	K02939	0.8635163161804762	yes	gene	Ribosome
+YP_001085202.1	rplI	aci	K02939	-0.010878463357560264	yes	gene	Ribosome
+WP_002886682.1	rplI	kleb	K02939	1.708362435169823	yes	gene	Ribosome
+NP_252954.1	rpsJ	pseu	K02946	0.905141394875205	yes	gene	Ribosome
+YP_001086080.1	rpsJ	aci	K02946	0.2953790101882081	yes	gene	Ribosome
+WP_001181005.1	rpsJ	kleb	K02946	1.9956798704524932	yes	gene	Ribosome
+NP_252930.1	rpsK	pseu	K02948	0.7832005576120302	yes	gene	Ribosome
+YP_001086057.2	A1S_3058	aci	K02948	0.26501157975656753	yes	gene	Ribosome
+WP_002919257.1	rpsK	kleb	K02948	1.5995609765961643	yes	gene	Ribosome
+NP_252958.1	rpsL	pseu	K02950	0.8042147516508589	yes	gene	Ribosome
+YP_001083900.2	rpsL	aci	K02950	0.10792071020375715	yes	gene	Ribosome
+WP_002920115.1	rpsL	kleb	K02950	1.45088206405803	yes	gene	Ribosome
+NP_252931.1	rpsM	pseu	K02952	0.9101095209190113	yes	gene	Ribosome
+YP_001086058.1	rpsM	aci	K02952	0.20571925664519242	yes	gene	Ribosome
+WP_002919259.1	rpsM	kleb	K02952	1.085926549202144	yes	gene	Ribosome
+NP_252940.1	rpsN	pseu	K02954	1.2450886506041954	yes	gene	Ribosome
+YP_001086067.1	rpsN	aci	K02954	0.325376030416459	yes	gene	Ribosome
+WP_002919667.1	rpsN	kleb	K02954	1.8068551910248907	yes	gene	Ribosome
+NP_252434.1	rpsP	pseu	K02959	-0.12662800886600323	yes	gene	Ribosome
+YP_001086163.1	rpsP	aci	K02959	0.11336249416746469	yes	gene	Ribosome
+WP_002914149.1	rpsP	kleb	K02959	1.7489084427419161	yes	gene	Ribosome
+NP_252944.1	rpsQ	pseu	K02961	1.2779955950831514	yes	gene	Ribosome
+YP_001086071.1	rpsQ	aci	K02961	0.5683657407492131	yes	gene	Ribosome
+WP_002919751.1	rpsQ	kleb	K02961	0.5155269725804157	yes	gene	Ribosome
+NP_253621.1	rpsR	pseu	K02963	0.6475556384784582	yes	gene	Ribosome
+YP_001085201.1	rpsR	aci	K02963	0.0134016182521286	yes	gene	Ribosome
+WP_000135199.1	rpsR	kleb	K02963	1.891218450496205	yes	gene	Ribosome
+NP_252949.1	rpsS	pseu	K02965	1.0515442467379597	yes	gene	Ribosome
+WP_001138115.1	rpsS	kleb	K02965	1.8005711589968847	yes	gene	Ribosome
+NP_252346.1	rpsB	pseu	K02967	0.5867631899839125	yes	gene	Ribosome
+YP_001085347.1	A1S_2323	aci	K02967	-0.015634064691397498	yes	gene	Ribosome
+WP_002889299.1	rpsB	kleb	K02967	2.6219683571309016	yes	gene	Ribosome
+NP_249270.1	rpsU	pseu	K02970	-0.16509547342351816	yes	gene	Ribosome
+YP_001085270.1	rpsU	aci	K02970	-0.014926554481094811	yes	gene	Ribosome
+WP_001144069.1	rpsU	kleb	K02970	1.8811760640520232	yes	gene	Ribosome
+NP_252947.1	rpsC	pseu	K02982	1.132796854508662	yes	gene	Ribosome
+YP_001086074.2	A1S_3075	aci	K02982	0.47512582163605543	yes	gene	Ribosome
+WP_002919766.1	rpsC	kleb	K02982	1.2802492213224124	yes	gene	Ribosome
+NP_253622.1	rpsF	pseu	K02990	0.7599437091516386	yes	gene	Ribosome
+YP_001085200.2	rpsF	aci	K02990	0.012937048620802472	yes	gene	Ribosome
+WP_002885691.1	rpsF	kleb	K02990	1.9798842289717822	yes	gene	Ribosome
+NP_252957.1	rpsG	pseu	K02992	0.693673389497139	yes	gene	Ribosome
+YP_001083901.2	A1S_0867	aci	K02992	0.2159844205347632	yes	gene	Ribosome
+WP_002920113.1	rpsG	kleb	K02992	1.4823058446679305	yes	gene	Ribosome
+NP_252939.1	rpsH	pseu	K02994	0.4541837010247729	yes	gene	Ribosome
+YP_001086066.2	rpsH	aci	K02994	0.39108344061125777	yes	gene	Ribosome
+WP_002919665.1	rpsH	kleb	K02994	2.0276006031902245	yes	gene	Ribosome
+NP_249116.1	mexA	pseu	K03585	0.36640247435320106	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_250709.1	PA2019	pseu	K03585	-0.059475104309038684	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253064.1	PA4374	pseu	K03585	0.16068391299905294	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253289.1	mexC	pseu	K03585	0.30596751254647536	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001084780.1	A1S_1751	aci	K03585	0.20834939530069185	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001084781.1	A1S_1752	aci	K03585	0.714851480735236	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085750.1	A1S_2735	aci	K03585	-0.0061544186859539	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085825.1	A1S_2817	aci	K03585	-0.39696823294233496	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004147376.1	acrA	kleb	K03585	1.1500926080887082	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004150241.1	eefA	kleb	K03585	2.7940879193716124	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_250962.1	pbpC	pseu	K03587	0.04692198430060124	yes	gene	Peptidoglycan biosynthesis
+NP_253108.1	ftsI	pseu	K03587	0.3284813040176804	yes	gene	Peptidoglycan biosynthesis
+YP_001086199.1	A1S_3204	aci	K03587	-0.001980772723380042	yes	gene	Peptidoglycan biosynthesis
+WP_004148834.1	ftsI	kleb	K03587	2.3674039204750317	yes	gene	Peptidoglycan biosynthesis
+NP_253103.1	ftsW	pseu	K03588	0.8315372556963467	yes	gene	Peptidoglycan biosynthesis
+YP_001083323.1	A1S_0246	aci	K03588	-0.1299357820824838	yes	gene	Peptidoglycan biosynthesis
+WP_002888565.1	ftsW	kleb	K03588	-2.9393661867382352	yes	gene	Peptidoglycan biosynthesis
+NP_252605.1	moaE	pseu	K03635	0.28659313390686947	yes	gene	Folate biosynthesis
+YP_001085026.1	A1S_1997	aci	K03635	-0.30309288277399293	yes	gene	Folate biosynthesis
+WP_002895674.1	moaE	kleb	K03635	2.870162074286526	yes	gene	Folate biosynthesis
+NP_252607.1	moaC	pseu	K03637	0.2772807377655866	yes	gene	Folate biosynthesis
+WP_002895670.1	moaC	kleb	K03637	-2.216522867108953	yes	gene	Folate biosynthesis
+NP_251719.1	moaB2	pseu	K03638	0.17239305792324267	yes	gene	Folate biosynthesis
+NP_252604.1	moaB1	pseu	K03638	-0.2693703788118764	yes	gene	Folate biosynthesis
+WP_002895668.1	moaB	kleb	K03638	-1.1775574922361383	yes	gene	Folate biosynthesis
+NP_254176.1	dsbA	pseu	K03673	0.5404847831016077	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001083134.1	A1S_0037	aci	K03673	0.2802319120608985	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004146224.1	dsbA	kleb	K03673	2.3394546976204804	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_251718.1	moeA2	pseu	K03750	0.41639410610422445	yes	gene	Folate biosynthesis
+NP_252603.1	moeA1	pseu	K03750	0.20505503640811362	yes	gene	Folate biosynthesis
+YP_001085024.1	A1S_1995	aci	K03750	-0.5431737217123622	yes	gene	Folate biosynthesis
+WP_004147723.1	moeA	kleb	K03750	1.168176227067705	yes	gene	Folate biosynthesis
+NP_251720.1	mobA	pseu	K03752	-0.2013196999499609	yes	gene	Folate biosynthesis
+YP_001085030.1	A1S_2001	aci	K03752	-0.6069195224264448	yes	gene	Folate biosynthesis
+WP_004178039.1	mobA	kleb	K03752	2.6363330196214827	yes	gene	Folate biosynthesis
+NP_251917.1	ppiA	pseu	K03767	0.28237412478068613	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085960.1	A1S_2955	aci	K03767	-0.053436661089756754	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002920238.1	ppiA	kleb	K03767	2.1476196164731682	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_249069.1	PA0378	pseu	K03814	0.02328491354016471	yes	gene	Peptidoglycan biosynthesis
+YP_001084023.1	A1S_0989	aci	K03814	-0.11936621241484424	yes	gene	Peptidoglycan biosynthesis
+WP_025861203.1	mtgA	kleb	K03814	1.381017986192207	yes	gene	Peptidoglycan biosynthesis
+NP_252390.1	lysS	pseu	K04567	-0.3591112760079511	yes	gene	Aminoacyl-tRNA biosynthesis
+YP_001084032.1	lysS	aci	K04567	-0.16775255187123683	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002892491.1	lysS	kleb	K04567	2.5055992793147577	yes	gene	Aminoacyl-tRNA biosynthesis
+WP_002916299.1	lysS	kleb	K04567	2.5055992793147577	yes	gene	Aminoacyl-tRNA biosynthesis
+NP_249457.1	mucD	pseu	K04771	0.46182454937430073	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085544.1	A1S_2525	aci	K04771	-0.05676386345558626	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004177363.1	degP	kleb	K04771	1.3022968652028393	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253388.1	mrcB	pseu	K05365	-0.06974279375973857	yes	gene	Peptidoglycan biosynthesis
+YP_001085309.1	A1S_2284	aci	K05365	0.04460310928033806	yes	gene	Peptidoglycan biosynthesis
+WP_004147127.1	mrcB	kleb	K05365	3.2239070341632887	yes	gene	Peptidoglycan biosynthesis
+NP_253732.1	ponA	pseu	K05366	0.0826830943231478	yes	gene	Peptidoglycan biosynthesis
+YP_001086191.1	A1S_3196	aci	K05366	-0.032215950716349084	yes	gene	Peptidoglycan biosynthesis
+YP_001086192.1	A1S_3197	aci	K05366	-0.11634518573975505	yes	gene	Peptidoglycan biosynthesis
+WP_004150051.1	mrcA	kleb	K05366	2.231657626643094	yes	gene	Peptidoglycan biosynthesis
+NP_252692.1	pbpA	pseu	K05515	-0.12752850563743756	yes	gene	Peptidoglycan biosynthesis
+YP_001084054.1	A1S_1020	aci	K05515	0.040855248201060235	yes	gene	Peptidoglycan biosynthesis
+WP_002894617.1	mrdA	kleb	K05515	1.5475481558491433	yes	gene	Peptidoglycan biosynthesis
+WP_025861974.1	mrdA	kleb	K05515	1.5475481558491433	yes	gene	Peptidoglycan biosynthesis
+NP_252691.1	rodA	pseu	K05837	0.2689659406661793	yes	gene	Peptidoglycan biosynthesis
+YP_001085339.1	A1S_2315	aci	K05837	-0.06481412911348272	yes	gene	Peptidoglycan biosynthesis
+WP_002894613.1	mrdB	kleb	K05837	1.762645065358175	yes	gene	Peptidoglycan biosynthesis
+NP_250649.1	bacA	pseu	K06153	-0.3062018035490386	yes	gene	Peptidoglycan biosynthesis
+YP_001085782.1	A1S_2768	aci	K06153	-0.1813971227726281	yes	gene	Peptidoglycan biosynthesis
+WP_004144532.1	bacA	kleb	K06153	1.122520841723011	yes	gene	Peptidoglycan biosynthesis
+NP_251496.1	PA2806	pseu	K06879	-0.17448770160628335	yes	gene	Folate biosynthesis
+YP_001085337.1	queF	aci	K06879	-0.217405476115335	yes	gene	Folate biosynthesis
+WP_025861016.1	queF	kleb	K06879	2.4430528003274707	yes	gene	Folate biosynthesis
+NP_249667.1	PA0976	pseu	K06920	-0.3878860989826336	yes	gene	Folate biosynthesis
+YP_001085561.1	A1S_2542	aci	K06920	-0.04961579223647128	yes	gene	Folate biosynthesis
+WP_002891863.1	queC	kleb	K06920	2.0654657376011683	yes	gene	Folate biosynthesis
+NP_252688.1	dacC	pseu	K07258	0.495106693299995	yes	gene	Peptidoglycan biosynthesis
+YP_001085455.1	A1S_2435	aci	K07258	-0.26711464936755114	yes	gene	Peptidoglycan biosynthesis
+YP_001085499.1	A1S_2479	aci	K07258	-0.14668952082360498	yes	gene	Peptidoglycan biosynthesis
+WP_004893232.1	dacC	kleb	K07258	1.433898778195223	yes	gene	Peptidoglycan biosynthesis
+NP_251737.1	PA3047	pseu	K07259	0.16194547748262167	yes	gene	Peptidoglycan biosynthesis
+WP_004149937.1	dacB	kleb	K07259	1.3524984750534497	yes	gene	Peptidoglycan biosynthesis
+NP_252246.1	arnT	pseu	K07264	0.6025162407031033	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_021469880.1	arnT	kleb	K07264	2.6342823647586737	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252129.1	folX	pseu	K07589	0.1325526057808375	yes	gene	Folate biosynthesis
+WP_002913200.1	folX	kleb	K07589	1.1285226680663794	yes	gene	Folate biosynthesis
+NP_249871.1	phoQ	pseu	K07637	0.48821649421906343	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004147969.1	phoQ	kleb	K07637	2.1712110276212675	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_251894.1	PA3204	pseu	K07662	0.19823053772596388	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002882901.1	cpxR	kleb	K07662	1.36691911925272	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252242.1	arnB	pseu	K07806	0.3403801706887215	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002921037.1	arnB	kleb	K07806	2.5749150262473535	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_254226.1	PA5539	pseu	K09007	-0.14138006364060196	yes	gene	Folate biosynthesis
+WP_000020322.1	folE2	kleb	K09007	1.0851828769341418	yes	gene	Folate biosynthesis
+WP_004150724.1	folE2	kleb	K09007	1.0851828769341418	yes	gene	Folate biosynthesis
+NP_252244.1	arnA	pseu	K10011	0.5877123960748101	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004150093.1	arnA	kleb	K10011	3.275643490448493	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252243.1	arnC	pseu	K10012	0.4324668506551905	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002921035.1	arnC	kleb	K10012	2.915837629206714	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_249666.1	PA0975	pseu	K10026	-0.6307608956959694	yes	gene	Folate biosynthesis
+YP_001085559.1	A1S_2540	aci	K10026	0.004164707230327025	yes	gene	Folate biosynthesis
+YP_001085560.1	A1S_2541	aci	K10026	-0.12111937475882328	yes	gene	Folate biosynthesis
+WP_025861022.1	queE	kleb	K10026	1.7781835653043787	yes	gene	Folate biosynthesis
+NP_252833.1	PA4144	pseu	K12340	-0.03756217095178904	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253282.1	PA4592	pseu	K12340	0.2627848267229975	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253661.1	PA4974	pseu	K12340	-0.025432490378351602	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001083332.1	A1S_0255	aci	K12340	-0.1247307904242625	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085638.1	A1S_2619	aci	K12340	-0.10492111863001163	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_032443945.1	tolC	kleb	K12340	1.6919160646543148	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252247.1	arnE	pseu	K12962	0.7102889775107766	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002920864.1	arnE	kleb	K12962	1.8177242093885386	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252248.1	arnF	pseu	K12963	0.7678370834390265	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_002920863.1	arnF	kleb	K12963	2.417660247056624	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252245.1	arnD	pseu	K13014	0.6834458035963067	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004188275.1	arnD	kleb	K13014	3.901209569195946	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_252127.1	folM	pseu	K13938	-0.02857803939687109	yes	gene	Folate biosynthesis
+WP_015874751.1	folM	kleb	K13938	-1.5283208335737186	yes	gene	Folate biosynthesis
+NP_249117.1	mexB	pseu	K18138	0.5229879669018658	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_250708.1	PA2018	pseu	K18138	0.43958127238104616	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+NP_253065.1	PA4375	pseu	K18138	0.35653800554065107	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085678.1	A1S_2660	aci	K18138	0.6149580941073793	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085751.1	A1S_2736	aci	K18138	0.07971164463184266	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+YP_001085826.1	A1S_2818	aci	K18138	-0.43485124561568256	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004147373.1	acrB	kleb	K18138	-1.1535424624974127	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+WP_004150242.1	eefB	kleb	K18138	2.7053276270867963	yes	gene	Cationic antimicrobial peptide (CAMP) resistance
+HUB_map03010	Ribosome	pathway_hub	map03010		no	pathway_hub	Ribosome
+HUB_map00550	Peptidoglycan biosynthesis	pathway_hub	map00550		no	pathway_hub	Peptidoglycan biosynthesis
+HUB_map01503	Cationic antimicrobial peptide (CAMP) resistance	pathway_hub	map01503		no	pathway_hub	Cationic antimicrobial peptide (CAMP) resistance
+HUB_map00790	Folate biosynthesis	pathway_hub	map00790		no	pathway_hub	Folate biosynthesis
+HUB_map00970	Aminoacyl-tRNA biosynthesis	pathway_hub	map00970		no	pathway_hub	Aminoacyl-tRNA biosynthesis
