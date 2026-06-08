@@ -5,7 +5,7 @@
 > |Nome  | RA | Especialização|
 > |--|--|--|
 > | Ana Beatriz R. Tomcix  | 231537  | Biomédica |
-> | Gabriel P. Stein  |   | Estatística |
+> | Gabriel P. Stein  |  197466 | Estatística |
 > | Gabriel T. Alves  | 289971  | Estatística |
 > | Lucas de A. Montalvão  | 323001  | Biotecnologia|
 > | Lucas S. Silva  | 291613  | Computação|
