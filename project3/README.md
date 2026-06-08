@@ -271,7 +271,7 @@ Os principais arquivos gerados pelo pipeline são:
 ### Rede comdinadas
 
 ![combined](./assets/pictures/combined_edges.png)
-![combined2](./assets/pictures/combined_edges2.png)
+![combined2](./assets/pictures/combined_edges_2.png)
 > Legenda:
 > - 🟦 Acinetobacter
 > - 🟩 Klebisbella
