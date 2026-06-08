@@ -64,62 +64,6 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 | Comprehensive Antibiotic Resistance Database (CARD) | [https://card.mcmaster.ca/](https://card.mcmaster.ca/)                                                                       | Base de referência para anotação de genes de resistência, auxiliando na interpretação biológica dos genes identificados como hubs nas redes.                                                                                                                |
 
 
-
-# Modelo Lógico
-
-![image1](../project1/assets/images/modelo-logico-grafos.png)
-
-> ### **Gene**
->
-> Representa cada gene analisado no estudo.
-> 
-> **Atributos:**
-> * **gene\_id (PK):** Identificador único do gene  
-> * **nome\_gene:** Nome do gene  
-> * **organismo:** Bactéria de origem  
-> * **anotacao\_resistencia:** Indica se o gene está associado à resistência (ex: presente no CARD)  
-> * **funcao\_biologica:** Função biológica do gene  
-> * **amostra\_id:** Identificador da amostra associada  
-> * **nivel\_expresao:** Nível de expressão do gene
-
-
-> ### **Condição Experimental**
-> 
-> Define o contexto em que as amostras foram coletadas.
-> 
-> **Atributos:**
-> 
-> * **amostra\_id:** Identificador da amostra  
-> * **antibiotico:** Condição experimental (ex: meropenem ou normal)
-
-
-> ### **Coexpressão**
-> 
-> Define a relação associada à expressão gênica em diferentes condições.
-> 
-> **Atributos:**
-> 
-> * **gene\_id:** Identificador do gene  
-> * **nivel\_expresao\_meropenem:** Nível de expressão sob presença de antibiótico  
-> * **nivel\_expresao\_normal:** Nível de expressão em condição normal  
-> * **diferenca\_expressao:** Diferença entre os níveis de expressão
-
-> ### **Interações entre Genes** 
-> 
-> Representa as conexões entre pares de genes/proteínas com base na base STRING, incluindo interações conhecidas e preditas.
-> 
-> **Atributos:**
-> 
-> * **gene\_id\_1:** Identificador do primeiro gene  
-> * **gene\_id\_2:** Identificador do segundo gene  
-> * **score\_interacao:** Score combinado de confiança da interação (0 a 1\)  
-> * **tipo\_interacao:** Tipo da interação (ex: experimental, coexpressão, banco de dados, text mining)  
-> * **evidencia\_experimental:** Score baseado em experimentos laboratoriais  
-> * **evidencia\_coexpressao:** Score baseado em padrões de expressão similares  
-> * **evidencia\_textmining:** Score baseado em coocorrência em artigos científicos  
-> * **evidencia\_database:** Score baseado em bases curadas
-
-
 # **Metodologia**
 
 ![metodologia1](./assets/pictures/metologia.png)
