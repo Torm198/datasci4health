@@ -11,9 +11,10 @@ O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do
 
 
 # Slides 
-
-Disponível neste [link](https://docs.google.com/presentation/d/1d2H6rdWFHeNa34FSrNmZf1_DYucKheZhWZA8VMZwR-w/edit?usp=drivesdk)
-- [View slides as PDF](./assets/slides/entrega_intermediaria.pdf)
+ 
+!!! ADICIONAR !!!!
+Disponível neste [link]()
+- [View slides as PDF]()
 
 # Fundamentação Teórica
 
@@ -35,9 +36,21 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 
 # Perguntas de Pesquisa
 
-1. Quais genes aumentam sua expressão simultaneamente nas três bactérias quando elas tentam sobreviver ao Meropenem?  
-2. Se transformarmos esses dados em um grafo, quais são os 5 genes mais conectados (hubs) que aparecem como "líderes" da resistência em cada espécie?  
-3. Visualmente, as redes de resistência dessas três bactérias se parecem ou cada uma tem um "estilo" de defesa completamente diferente?
+## Pergunta Principal
+
+**Existem mecanismos de resistência ao Meropenem compartilhados entre bactérias ESKAPE?**
+
+## Perguntas Secundárias
+
+1. Quais genes e funções biológicas são diferencialmente regulados em resposta ao Meropenem em cada espécie?
+
+2. Quais ortólogos apresentam comportamento conservado entre *K. pneumoniae*, *A. baumannii* e *P. aeruginosa*?
+
+3. Quais processos biológicos estão enriquecidos entre os genes diferencialmente expressos?
+
+4. Quais genes ocupam posições centrais nas redes biológicas associadas à resistência?
+
+5. Existem vulnerabilidades moleculares compartilhadas que possam ser exploradas como potenciais alvos terapêuticos de amplo espectro?
 
 # Bases de Dados
 
@@ -109,28 +122,121 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 
 # **Metodologia**
 
-A execução do projeto será dividida em quatro etapas principais, integrando a análise biológica de expressão gênica com a modelagem matemática de redes:
+![metodologia1](./assets/pictures/metologia.png)
+![metodologia2](./assets/pictures/metologia_p2.png)
 
-#### **1\. Coleta e Pré-processamento de Dados**
+## Quantificação da Resposta ao Meropenem
 
-Utilizaremos dados brutos de contagem (read counts) de sequenciamento de RNA (RNA-Seq) provenientes do repositório público **NCBI Gene Expression Omnibus (GEO)**. Serão selecionados três datasets independentes para *Klebsiella pneumoniae*, *Acinetobacter baumannii* e *Pseudomonas aeruginosa*, todos contendo grupos controle (sem tratamento), grupos submetidos ao estresse por Meropenem e que utilizem sequenciamento de última geração (NGS).
+O pipeline calcula log2 fold change (LFC) para cada espécie usando médias de controle e tratamento:
 
-#### **2\. Análise de Expressão Diferencial (Fold-Change)**
+* **Pseudomonas aeruginosa**: arquivo `pseudo.xlsx`; controle = colunas com `0M`, tratamento = colunas com `5M`.
+* **Acinetobacter baumannii**: arquivo `acineto.txt.gz`; réplicas `R1` e `R2` são somadas em cada amostra, controle = colunas `no_mero`, tratamento = colunas `mero`.
+* **Klebsiella pneumoniae**: arquivo `kleb.txt.gz`; seleciona colunas `_Count`, controle = `NK01067` sem `MEM`, tratamento = `NK01067` com `MEM`.
 
-Para identificar os genes que respondem ao antibiótico, utilizaremos métodos estatísticos como testes de hipóteses e modelos lineares para comparação da expressão dos mesmos. Definindo uma referência para uma comparação direta entre os grupos de interesse e testar se a diferença na expressão de cada gene é maior do que o esperado pelo acaso. O critério de seleção para os genes que farão parte da rede será o **${log_{2}}$ Fold-Change (LFC)**. Filtrando apenas os genes com |LFC| estatisticamente significantes, garantindo que a rede represente a resposta biológica real ao estresse e não o ruído metabólico basal.
+O cálculo utilizado é:
 
-#### **3\. Construção da Rede de Coexpressão**
+```python
+LFC = mean(log2(tratamento + 1)) - mean(log2(controle + 1))
+```
 
-A partir dos genes filtrados, vamos construir matrizes de adjacência baseadas em coeficientes de **correlação de Pearson ou Spearman**.
+E o limiar de expressão diferencial é configurável em:
 
-* **Nós:** Representam os genes expressos diferencialmente.  
-* **Arestas:** Serão estabelecidas entre genes que apresentarem correlação de expressão superior a um limiar crítico (threshold), indicando que operam em conjunto sob estresse.
+```python
+LFC_THRESHOLD = 1.0
+```
 
-Para o cálculo das matrizes e construção da rede, serão utilizadas ferramentas como **WGCNA** ou **igraph** (em R) e **Pandas** ou **NetworkX** (em Python). Essas tecnologias processam as correlações estatísticas para definir a adjacência dos nós e exportar o grafo final ao Cytoscape.
+Genes com `LFC == 0` são descartados da análise.
 
-#### **4\. Análise de Redes e Visualização**
+---
 
-Aplicaremos métricas de **Centralidade de Grau** para identificar os "genes-hub" (os nós mais conectados) e algoritmos de **Detecção de Comunidades (Louvain)** para agrupar genes por módulos funcionais. A visualização final será feita em ferramentas como **Cytoscape** ou **Gephi**, onde as cores dos nós representarão o Fold-Change (vermelho para aumento, azul para diminuição) e o tamanho dos nós representará sua importância (centralidade) na rede de resistência.
+## Integração Genômica
+
+A integração combina três fontes principais:
+
+* Anotações de genes e proteínas do arquivo **GFF**.
+* Anotações de função KO a partir de arquivos de mapeamento de proteínas para KEGG Orthology.
+* Valores de LFC obtidos a partir dos dados de GEO/contagem.
+
+O script usa `protein_id`, `locus_tag` e `gene_name` para casar as anotações de KO com os valores de LFC de cada organismo.
+
+---
+
+## Ortologia
+
+O código monta uma matriz KEGG de ortologia em que cada linha é um **KO** e cada coluna corresponde a uma espécie. Para cada KO, o gerador apresenta as proteínas associadas àquele KO em cada organismo.
+
+Ausências são registradas como `-`, permitindo comparar diretamente a presença/ausência e a composição de ortólogos entre espécies.
+
+---
+
+## Core Ortólogo DE
+
+A análise identifica o conjunto de KOs que são diferencialmente expressos em todas as espécies analisadas:
+
+* Cada espécie contribui com o conjunto de KOs onde `|LFC| >= LFC_THRESHOLD`.
+* O core ortológico é a interseção desses conjuntos entre as três espécies.
+* A saída contém genes, LFCs e IDs de proteína por espécie para cada KO conservado.
+
+---
+
+## Enriquecimento Funcional
+
+A análise de pathways utiliza o mapa KEGG de associação KO → pathway:
+
+* O script baixa o conjunto de pathways e os links KO→pathway da API KEGG, ou recarrega um cache local se disponível.
+* Executa ORA usando o teste exato de Fisher.
+* Aplica correção de múltiplos testes por FDR Benjamini-Hochberg.
+* Considera significativos somente pathways com `padj <= 0.05`.
+
+O background é o conjunto de todos os KOs presentes na tabela integrada.
+
+---
+
+## Construção de Redes
+
+O pipeline gera redes de diferentes perspectivas:
+
+* **Rede ortológica**: conecta proteínas de espécies diferentes que compartilham o mesmo KO.
+* **Rede core**: subgrafo contendo apenas ortólogos com expressão diferencial compartilhada.
+* **Rede de pathways**: integra genes e pathways enriquecidos, destacando KOs associados a pathways significativos.
+* **Rede final com hubs**: adiciona nós representando pathways enriquecidos, formando uma estrutura em estrela para facilitar visualização em Cytoscape.
+
+Além disso, o código consulta a base **STRING** para redes de interação proteína-proteína por espécie, calculando métricas de importância como:
+
+* `ortho_score` — número de conexões cross-espécie na rede ortológica.
+* `string_score` — número de interações PPI retornadas pela base STRING.
+* `impact_score` — combinação normalizada de `ortho_score` e `string_score` multiplicada por `|LFC|`.
+
+O resultado também inclui gráficos e tabelas de top genes por impacto.
+
+---
+
+## Saídas Principais
+
+Os principais arquivos gerados pelo pipeline são:
+
+* `orthologs_integrated.tsv`
+* `dicionario_ortologia_kegg.tsv`
+* `rede_ortologia_edges.tsv`
+* `nodes_metadata.tsv`
+* `core_ortologs_DE.tsv`
+* `core_edges.tsv`
+* `core_nodes.tsv`
+* `pathway_enrichment.tsv`
+* `pathway_enrichment_plot.png`
+* `pathway_edges.tsv`
+* `pathway_nodes.tsv`
+* `combined_edges.tsv`
+* `combined_nodes.tsv`
+* `pathway_hub_nodes.tsv`
+* `string_pseu_nodes.tsv`, `string_pseu_edges.tsv`
+* `string_aci_nodes.tsv`, `string_aci_edges.tsv`
+* `string_kleb_nodes.tsv`, `string_kleb_edges.tsv`
+* `impact_score_plot.png`
+* `top5_impact_genes.tsv`
+
+---
+
 
 # Análise Preliminar
 
@@ -181,16 +287,11 @@ Os principais passos realizados foram:
 
 # Ferramentas
 
-## Já utilizadas
-
 * **Python (Pandas, NumPy):** processamento e análise de dados
 * **NCBI GEO:** obtenção dos datasets
 * **STRING DB:** construção inicial de redes de interação
-
-## Planejadas
-
 * **KEGG API:** construção do dicionário de ortologia
-* **pydeseq2:** Métodos estatísticos para significância (ex: testes de hipóteses)
+
 
 ---
 

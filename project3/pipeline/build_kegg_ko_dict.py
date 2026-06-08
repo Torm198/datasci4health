@@ -3,6 +3,7 @@ import time
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 from scipy.stats import fisher_exact
 from statsmodels.stats.multitest import multipletests
 import numpy as np
@@ -35,6 +36,14 @@ ORGANISMS = {
     "aci":  {"gff": "aci_gem/genomic.gff",  "ko": "aci_annotation.txt",  "geo": "acineto.txt.gz"},
     "kleb": {"gff": "kleb_gem/genomic.gff", "ko": "kleb_annotation.txt", "geo": "kleb.txt.gz"},
 }
+
+SPECIES_TAXID = {
+    "pseu":  208964,  # Pseudomonas aeruginosa PAO1
+    "aci":   400667,  # Acinetobacter baumannii ATCC 17978
+    "kleb":  272620,  # Klebsiella pneumoniae ATCC 13883
+}
+
+STRING_MIN_SCORE = 400  # medium confidence
 
 # =========================================================
 # STEP 1: Cálculo de LFC (log2 simples)
@@ -115,6 +124,10 @@ LFC_CALCULATORS = {
     "kleb": calc_lfc_kleb,
 }
 
+# =========================================================
+# STEP 2: Parse GFF
+# =========================================================
+
 def parse_gff(gff_path, species):
     log(f"[{species}] Lendo GFF: {gff_path}")
 
@@ -160,6 +173,10 @@ def parse_gff(gff_path, species):
     log(f"[{species}] {len(df)} CDS extraídas do GFF")
     return df
 
+# =========================================================
+# STEP 3: Parse KO
+# =========================================================
+
 def parse_ko(ko_path, species):
     log(f"[{species}] Lendo anotações KO: {ko_path}")
     df = pd.read_csv(ko_path, sep=r"\s+", header=None,
@@ -167,6 +184,10 @@ def parse_ko(ko_path, species):
                      ).dropna(subset=["protein_id", "KO"])
     log(f"[{species}] {len(df)} anotações KO carregadas")
     return df
+
+# =========================================================
+# STEP 4: Integração por organismo
+# =========================================================
 
 def integrate_organism(org_id, paths):
     lfc_df = LFC_CALCULATORS[org_id](paths["geo"])
@@ -209,6 +230,9 @@ def integrate_organism(org_id, paths):
 
     return merged, ko_to_genes
 
+# =========================================================
+# STEP 5: Matriz de ortologia
+# =========================================================
 
 def build_orthology_matrix(all_species_kos):
     log("Construindo matriz de ortologia")
@@ -220,6 +244,10 @@ def build_orthology_matrix(all_species_kos):
             row[sp] = ";".join(sp_dict.get(ko, [])) or "-"
         data.append(row)
     return pd.DataFrame(data)
+
+# =========================================================
+# STEP 5b: Core ortólogo DE
+# =========================================================
 
 def build_core_de(all_integrated, species_list, threshold=LFC_THRESHOLD):
     log(f"Calculando core ortólogo DE (threshold |LFC| >= {threshold})")
@@ -252,6 +280,10 @@ def build_core_de(all_integrated, species_list, threshold=LFC_THRESHOLD):
         rows.append(row)
 
     return pd.DataFrame(rows)
+
+# =========================================================
+# STEP 6: Rede Cytoscape
+# =========================================================
 
 def build_cytoscape_network(ortho_df, all_integrated, species_list):
     log("Gerando rede para Cytoscape")
@@ -302,6 +334,10 @@ def build_cytoscape_network(ortho_df, all_integrated, species_list):
     nodes_df = pd.DataFrame(nodes).drop_duplicates(subset=["ID"])
     log(f"Rede: {len(edges_df)} arestas | {len(nodes_df)} nós")
     return edges_df, nodes_df
+
+# =========================================================
+# STEP 7: KEGG download + ORA
+# =========================================================
 
 def download_kegg_ko_pathway_map(cache_file=KEGG_CACHE_FILE):
     cache_path = Path(cache_file)
@@ -400,6 +436,9 @@ def run_ora(query_kos, background_kos, ko_to_pathways, pathway_to_info,
     log(f"ORA: {len(df)} pathways significativos (padj <= {pval_cutoff})")
     return df.reset_index(drop=True)
 
+# =========================================================
+# STEP 8: Anotação + Hubs + Plot
+# =========================================================
 
 def annotate_with_pathway(df, ora_df, ko_col="KO", fill="Other", top_n=5):
     top = ora_df[~ora_df["pathway_name"].isin(SKIP_PATHWAYS)].head(top_n)
@@ -469,6 +508,269 @@ def plot_enrichment(ora_df, output_file="pathway_enrichment_plot.png", top_n=15)
     plt.close()
     log(f"Gráfico salvo: {output_file}")
 
+# =========================================================
+# REDE STRING: PPI por espécie com ortho_score e string_score
+# =========================================================
+
+def build_string_network(all_integrated, edges_df, combined_nodes, min_score=STRING_MIN_SCORE):
+    """
+    Gera 3 pares de arquivos separados por espécie:
+      string_pseu_edges.tsv / string_pseu_nodes.tsv
+      string_aci_edges.tsv  / string_aci_nodes.tsv
+      string_kleb_edges.tsv / string_kleb_nodes.tsv
+
+    Usa exatamente os mesmos genes do combined_nodes (sem hubs de pathway).
+    Colunas dos nodes: ID, gene_name, Especie, KO, LFC, ortho_score, string_score
+    Colunas das edges: source, target, Especie, string_interaction_score
+    """
+    log("Iniciando rede STRING...")
+
+    # Filtra pelos IDs do combined_nodes excluindo hubs
+    gene_ids = set(
+        combined_nodes[combined_nodes["node_type"] != "pathway_hub"]["ID"].tolist()
+    )
+    log(f"  Genes do combined_nodes (sem hubs): {len(gene_ids)}")
+
+    # Monta tabela base a partir do all_integrated filtrado pelos IDs do combined
+    base_rows = []
+    for org_id, df in all_integrated.items():
+        for _, row in df.iterrows():
+            if row["protein_id"] not in gene_ids:
+                continue
+            gname = row.get("gene_name", "") or row.get("locus_tag", row["protein_id"])
+            if not gname:
+                gname = row["protein_id"]
+            base_rows.append({
+                "ID":        row["protein_id"],
+                "gene_name": gname,
+                "Especie":   org_id,
+                "KO":        row.get("KO", ""),
+                "LFC":       row["LFC"],
+            })
+    base_df = pd.DataFrame(base_rows).drop_duplicates(subset=["ID"])
+    log(f"  Base STRING após filtro: {len(base_df)} genes")
+
+    # ortho_score: grau de conexões cross-espécie na rede de ortologia
+    ortho_edges = edges_df[edges_df["type"] != "gene_to_pathway"] if not edges_df.empty else pd.DataFrame()
+    degree = {}
+    for _, row in ortho_edges.iterrows():
+        degree[row["source"]] = degree.get(row["source"], 0) + 1
+        degree[row["target"]] = degree.get(row["target"], 0) + 1
+    base_df["ortho_score"] = base_df["ID"].map(degree).fillna(0).astype(int)
+    log(f"  ortho_score: max={base_df['ortho_score'].max()} | com score>0: {(base_df['ortho_score']>0).sum()}")
+
+    # Busca STRING e gera arquivos separados por espécie
+    for species, taxid in SPECIES_TAXID.items():
+        sp_df = base_df[base_df["Especie"] == species].copy()
+        if sp_df.empty:
+            log(f"  [{species}] nenhum gene — pulando")
+            continue
+
+        gene_names = [g for g in sp_df["gene_name"].dropna().unique() if g]
+        if not gene_names:
+            continue
+
+        log(f"  [{species}] buscando {len(gene_names)} genes no STRING (taxid={taxid})...")
+
+        str_edges = []
+        string_degree = {}
+
+        for i in range(0, len(gene_names), 100):
+            batch = gene_names[i:i+100]
+            identifiers = "%0d".join(batch)
+            url = "https://string-db.org/api/json/network"
+            params = urllib.parse.urlencode({
+                "identifiers":     identifiers,
+                "species":         taxid,
+                "required_score":  min_score,
+                "caller_identity": "ortologia_pipeline",
+            }).encode("utf-8")
+            try:
+                req = urllib.request.Request(url, data=params)
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    data = json.loads(r.read().decode("utf-8"))
+                for inter in data:
+                    gA = inter.get("preferredName_A", "")
+                    gB = inter.get("preferredName_B", "")
+                    sc = inter.get("score", 0)
+                    if gA and gB:
+                        str_edges.append({
+                            "source":                   gA,
+                            "target":                   gB,
+                            "Especie":                  species,
+                            "string_interaction_score": round(sc, 3),
+                        })
+                        string_degree[gA] = string_degree.get(gA, 0) + 1
+                        string_degree[gB] = string_degree.get(gB, 0) + 1
+            except Exception as e:
+                log(f"  AVISO STRING [{species}] lote {i}: {e}")
+            time.sleep(0.5)
+
+        sp_df["string_score"] = sp_df["gene_name"].map(string_degree).fillna(0).astype(int)
+        sp_df["ortho_score"]  = sp_df["ID"].map(degree).fillna(0).astype(int)
+
+        # Normaliza scores dentro da espécie (0→1)
+        def norm_col(series):
+            mn, mx = series.min(), series.max()
+            return (series - mn) / (mx - mn) if mx != mn else series * 0.0
+
+        ortho_n  = norm_col(sp_df["ortho_score"])
+        string_n = norm_col(sp_df["string_score"])
+        lfc_abs  = sp_df["LFC"].abs()
+
+        # impact_score = (ortho_norm + string_norm) × |LFC|
+        sp_df["impact_score"] = ((ortho_n + string_n) * lfc_abs).round(4)
+
+        str_edges_df = pd.DataFrame(str_edges)
+
+        sp_df.to_csv(f"string_{species}_nodes.tsv", sep="\t", index=False)
+        if not str_edges_df.empty:
+            str_edges_df.to_csv(f"string_{species}_edges.tsv", sep="\t", index=False)
+        log(f"  [{species}] {len(str_edges_df)} arestas | {len(sp_df)} nós | string_score max={sp_df['string_score'].max()}")
+
+
+# =========================================================
+# PLOT: Top 5 genes por espécie pelo impact_score
+# =========================================================
+
+def plot_impact_scores():
+    """
+    Bubble chart: X=LFC, Y=string_score, tamanho=impact_score
+    Todos circulos, labels ajustados para evitar sobreposicao.
+    """
+    try:
+        import matplotlib; matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import matplotlib.patheffects as pe
+    except ImportError:
+        log("matplotlib nao instalado"); return
+
+    try:
+        from adjustText import adjust_text
+        HAS_ADJUSTTEXT = True
+    except ImportError:
+        HAS_ADJUSTTEXT = False
+
+    SPECIES_CONFIG = {
+        "pseu":  {"label": "Pseudomonas aeruginosa",  "color": "#2E86C1"},
+        "aci":   {"label": "Acinetobacter baumannii", "color": "#E67E22"},
+        "kleb":  {"label": "Klebsiella pneumoniae",   "color": "#27AE60"},
+    }
+
+    fig, ax = plt.subplots(figsize=(13, 9))
+    all_top = []
+    texts   = []
+
+    for species, cfg in SPECIES_CONFIG.items():
+        fpath = f"string_{species}_nodes.tsv"
+        if not Path(fpath).exists():
+            log(f"  AVISO: {fpath} nao encontrado — pulando")
+            continue
+
+        df = pd.read_csv(fpath, sep="\t")
+        needed = ["LFC", "string_score", "impact_score"]
+        if not all(c in df.columns for c in needed):
+            log(f"  AVISO: colunas ausentes em {fpath}")
+            continue
+
+        for col in needed:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+        df = df.dropna(subset=needed)
+
+        # Normaliza ortho + string para tamanho do ponto (20 a 400)
+        def norm01(s):
+            mn, mx = s.min(), s.max()
+            return (s - mn) / (mx - mn) if mx != mn else s * 0.0
+
+        # Normaliza X e Y dentro da espécie (0→1)
+        ortho_n  = norm01(df["ortho_score"])
+        string_n = norm01(df["string_score"])
+
+        lfc_abs   = df["LFC"].abs()
+        lfc_min   = lfc_abs.min()
+        lfc_max   = lfc_abs.max()
+        lfc_range = lfc_max - lfc_min if lfc_max != lfc_min else 1
+        sizes     = 20 + ((lfc_abs - lfc_min) / lfc_range) * 400
+
+        # Todos os genes — pequenos e transparentes
+        ax.scatter(
+            ortho_n, string_n,
+            s=sizes, color=cfg["color"], alpha=0.18,
+            marker="o", zorder=2,
+        )
+
+        # Top 5 por impact_score
+        top5      = df.nlargest(5, "impact_score")
+        ortho_top = norm01(top5["ortho_score"])
+        string_top = norm01(top5["string_score"])
+        lfc_top   = top5["LFC"].abs()
+        sizes_top = 20 + ((lfc_top - lfc_min) / lfc_range) * 400
+
+        ax.scatter(
+            ortho_top, string_top,
+            s=sizes_top, color=cfg["color"], alpha=0.92,
+            marker="o", zorder=4,
+            label=cfg["label"],
+            edgecolors="white", linewidths=1.2,
+        )
+
+        for i, (_, row) in enumerate(top5.iterrows()):
+            gname = str(row.get("gene_name", row.get("ID", "")))
+            ox = ortho_top.iloc[i]
+            sy = string_top.iloc[i]
+            t = ax.text(
+                ox, sy,
+                gname,
+                fontsize=9, fontweight="bold", color=cfg["color"],
+                zorder=6,
+                path_effects=[pe.withStroke(linewidth=3, foreground="white")],
+            )
+            texts.append(t)
+        all_top.append(top5)
+
+    # Ajusta labels automaticamente se adjustText disponivel
+    if HAS_ADJUSTTEXT and texts:
+        adjust_text(
+            texts, ax=ax,
+            arrowprops=dict(arrowstyle="-", color="grey", lw=0.6, alpha=0.5),
+            expand_points=(1.8, 1.8),
+            expand_text=(1.4, 1.4),
+        )
+    else:
+        offsets = [(0.15, 1.5),(-0.15, 1.5),(0.15,-1.5),(-0.15,-1.5),
+                   (0.25, 0),(-0.25, 0),(0.1, 2.5),(-0.1,-2.5),(0.2,1.8),(-0.2,1.8)]
+        for i, t in enumerate(texts):
+            x, y = t.get_position()
+            off  = offsets[i % len(offsets)]
+            t.set_position((x + off[0], y + off[1]))
+
+    ax.set_xlabel("Ortho Score normalizado (conexoes cross-especie)", fontsize=13)
+    ax.set_ylabel("String Score normalizado (interacoes PPI)", fontsize=13)
+    ax.set_title(
+        "Genes mais relevantes por especie\n"
+        "tamanho = |LFC|  |  cor = especie  |  top 5 destacados por impact score",
+        fontsize=13
+    )
+    ax.legend(fontsize=10, framealpha=0.9, markerscale=0.8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    plt.tight_layout()
+    plt.savefig("impact_score_plot.png", dpi=180, bbox_inches="tight")
+    plt.close()
+    log("Plot salvo: impact_score_plot.png")
+
+    if all_top:
+        top_df = pd.concat(all_top, ignore_index=True)
+        cols = ["Especie", "gene_name", "KO", "LFC", "ortho_score", "string_score", "impact_score"]
+        top_df[[c for c in cols if c in top_df.columns]]\
+            .sort_values(["Especie", "impact_score"], ascending=[True, False])\
+            .to_csv("top5_impact_genes.tsv", sep="\t", index=False)
+        log("Tabela salva: top5_impact_genes.tsv")
+
+# MAIN
+# =========================================================
+
 def main():
     log("===== INICIANDO PIPELINE DE ORTOLOGIA =====")
 
@@ -536,7 +838,6 @@ def main():
 
     background_kos = set(integrated_all["KO"].dropna().unique())
 
-    # Query: uniao de todos os KOs DE de qualquer especie
     query_kos = set()
     for org_id, df in all_integrated.items():
         query_kos.update(df[df["LFC"].abs() >= LFC_THRESHOLD]["KO"].dropna().unique())
@@ -553,13 +854,11 @@ def main():
     ora_df.to_csv("pathway_enrichment.tsv", sep="\t", index=False)
     log(f"Enriquecimento: pathway_enrichment.tsv ({len(ora_df)} pathways)")
 
-    # Anota rede completa
     edges_df = annotate_with_pathway(edges_df, ora_df)
     nodes_df = annotate_with_pathway(nodes_df, ora_df, fill="")
     edges_df.to_csv("rede_ortologia_edges.tsv", sep="\t", index=False)
     nodes_df.to_csv("nodes_metadata.tsv",       sep="\t", index=False)
 
-    # Subgrafo pathway + LFC
     de_ids = set(nodes_df[
         (nodes_df["LFC"].apply(lambda x: pd.to_numeric(x, errors="coerce")).abs() >= LFC_THRESHOLD) &
         (nodes_df["top_pathway"] != "")
@@ -575,16 +874,19 @@ def main():
     pw_nodes.to_csv("pathway_nodes.tsv", sep="\t", index=False)
     log(f"Subgrafo pathway+LFC: {len(pw_edges)} arestas | {len(pw_nodes)} nós")
 
-    # Estrela de pathway (hubs)
     star_edges, hub_nodes = build_pathway_star_edges(pw_nodes, pathway_to_info, ora_df)
 
     if not star_edges.empty:
         combined_nodes = pd.concat([pw_nodes, hub_nodes], ignore_index=True)
-        combined_edges = pd.concat([pw_edges, star_edges],  ignore_index=True)
+        combined_edges = pd.concat([pw_edges, star_edges], ignore_index=True)
         combined_edges.to_csv("combined_edges.tsv", sep="\t", index=False)
         combined_nodes.to_csv("combined_nodes.tsv", sep="\t", index=False)
         hub_nodes.to_csv("pathway_hub_nodes.tsv",   sep="\t", index=False)
         log(f"Rede combinada: {len(combined_edges)} arestas | {len(combined_nodes)} nós")
+
+    # Saída 6: Rede STRING (PPI por espécie com ortho_score e string_score)
+    build_string_network(all_integrated, edges_df, combined_nodes)
+    plot_impact_scores()
 
     plot_enrichment(ora_df)
 
@@ -601,6 +903,11 @@ def main():
     print("  pathway_edges/nodes.tsv        <- subgrafo por pathway")
     print("  combined_edges/nodes.tsv       <- rede final para Cytoscape")
     print("  pathway_hub_nodes.tsv          <- nós hub de pathway")
+    print("  string_pseu_edges/nodes.tsv    <- rede PPI Pseudomonas")
+    print("  string_aci_edges/nodes.tsv     <- rede PPI Acinetobacter")
+    print("  string_kleb_edges/nodes.tsv    <- rede PPI Klebsiella")
+    print("  impact_score_plot.png          <- top 5 genes por espécie")
+    print("  top5_impact_genes.tsv          <- tabela top 5 genes")
 
 
 if __name__ == "__main__":
