@@ -238,18 +238,9 @@ Os principais arquivos gerados pelo pipeline são:
 ---
 
 
-# Análise Preliminar
+# Resultados
 
-Uma análise preliminar foi conduzida com base nos três datasets selecionados, focando na identificação de genes diferencialmente expressos sob estresse por meropenem.
-
-Os principais passos realizados foram:
-
-* Separação das amostras em grupos **controle vs. tratado**
-* Cálculo de **log2 Fold-Change (log2FC)** para cada gene
-* Aplicação de um threshold de |log2FC| ≥ 1 (equivalente a ≥ 2x de variação)
-* Seleção dos **50 genes mais relevantes por espécie**
-
-## Principais achados iniciais
+## Manifestação da resistência ao Meropenem
 
 * Cada bactéria apresenta uma **estratégia distinta de resistência**, mas com padrões funcionais recorrentes:
 
@@ -277,11 +268,45 @@ Os principais passos realizados foram:
 
 ![image3](./assets/pictures/pa.jpg)
 
-## Limitações identificadas
+### Rede comdinadas
 
-* Baixo número de replicatas limita a robustez estatística
-* Nem todos os genes possuem correspondência na base STRING
-* Redes iniciais apresentaram fragmentação (muitos nós desconectados)
+![combined](./assets/pictures/combined_edges.jpg)
+![combined2](./assets/pictures/combined_edges2.jpg)
+> Legenda:
+> - 🟦 Acinetobacter
+> - 🟩 Klebisbella
+> - 🟪 Pseudomonas
+
+### Expressão vs. Conectividade
+![evc](./assets/pictures/ortologia_alvos.jpg)
+
+
+### Discussão
+A análise de rede revelou uma alta ortologia (identificada visualmente pelas "bolhas gigantes") entre os genomas de *Klebsiella*, *Pseudomonas* e *Acinetobacter*. No topo dessa topologia biológica, destaca-se o Eixo Ribossomal, caracterizado por uma super-representação massiva das famílias de genes estruturais **rpl** (subunidade 50S) e **rps** (subunidade 30S).
+
+Essa arquitetura evidencia uma fraqueza em comum: independentemente das táticas individuais de virulência de cada espécie, todas dependem criticamente de uma alta taxa de síntese proteica para montar suas respostas defensivas. Como conclusão terapêutica, o modelo valida que a inibição direcionada a esses alvos conservados é a chave para quebrar a resistência de amplo espectro.
+
+O modelo de combate simulado opera em um sistema de duplo impacto:
+
+* **O Ataque Primário:** O uso do beta-lactâmico (Meropenem) atua diretamente na ruptura das PBPs (Penicillin-Binding Proteins), fissurando a integridade da parede celular. Esse estresse mecânico e fisiológico força a bactéria a acionar emergencialmente seu maquinário de defesa sistêmica.  
+* **O Golpe Final:** Aproveitando a vulnerabilidade da parede celular desestruturada, ocorre a infiltração massiva dos inibidores de tradução. Uma vez no meio intracelular, eles travam de forma instantânea os alvos ortólogos superexpressos (*rpl/rps*), neutralizando a capacidade de resposta do patógeno.
+
+Contudo, os dados acenderam um alerta vermelho para o *Acinetobacter*. Esta espécie apresenta uma clara **fuga do dogma central** observado nas demais bactérias, desviando-se completamente dos grandes *hubs* hiperconectados da rede. Seus genes de maior *Impact Score* (indicador númeor de interações na rede ortológica e na base STRING), como o *A1S\_3075*, operam de forma isolada na base do gráfico, indicando uma independência estrutural única.  
+Essa assinatura reflete uma **tática de guerrilha metabólica**: para sobreviver, o *Acinetobacter* não gasta energia reprogramando grandes complexos proteicos; em vez disso, recruta enzimas autossuficientes e transportadores periféricos, garantindo sua defesa com o menor custo energético possível.
+
+Essa autonomia do *Acinetobacter* gera o **Paradoxo da Entrega**: embora o bloqueio ribossomal seja uma estratégia de amplo espectro poderosa, ele esbarra na impermeabilidade natural da membrana dessa bactéria. A repressão severa de porinas (nó *A1S\_0292/OmpW*) impede que o Meropenem cause a fissura necessária para a entrada dos outros fármacos.  
+Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequenciais:
+
+* **Cavalo de Troia:** Substituição do vetor de entrada pelo Cefiderocol (cefalosporina siderófora), que sequestra o sistema de captação de ferro da própria bactéria para penetrar ativamente na célula, ignorando o fechamento das porinas.  
+* **Vetor de Ruptura Universal:** Uso combinado de Polimixinas ou Sideróforos para garantir uma ação mecânica de quebra de barreira que independe inteiramente de porinas ou de enzimas de resistência.  
+* **Bloqueio Ortólogo e Colapso Final:** Com as vias de acesso liberadas, os inibidores de tradução ligam-se irreversivelmente aos genes *rpl/rps*. Ao travar o maquinário de síntese proteica universal, o sistema induz a falência total das estratégias espécie-especificas: o escudo de trealose é perdido, o sistema de secreção Tipo VI (T6SS) é desativado e as bombas de efluxo entram em colapso definitivo.
+
+
+## Próximos passos
+
+* **Validação** - Edição via CRISPR-Cas: Provar a causalidade através do nocaute direcional dos hubs isolados (ex: cefA ou A1S_3075).
+* **Sinergismo** - Checkerboard Assay: Cálculo do Índice FIC entre agentes de ruptura (Polimixinas) e inibidores ribossomais.
+* **In Vivo** - Modelos de Infecção: Ensaios de sobrevida em Galleria mellonella ou murinos para avaliar eficácia clínica.
 
 ---
 
