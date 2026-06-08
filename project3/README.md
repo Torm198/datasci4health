@@ -62,7 +62,35 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 | KEGG (Kyoto Encyclopedia of Genes and Genomes)      | [https://www.genome.jp/kegg/](https://www.genome.jp/kegg/)                                                                   | Utilizada (planejado) para construção de um dicionário de ortologia entre espécies, permitindo a comparação funcional entre genes de diferentes bactérias.                                                                                                  |
 | Comprehensive Antibiotic Resistance Database (CARD) | [https://card.mcmaster.ca/](https://card.mcmaster.ca/)                                                                       | Base de referência para anotação de genes de resistência, auxiliando na interpretação biológica dos genes identificados como hubs nas redes.                                                                                                                |
 
+## Descrição dos dados de experimento
 
+### Dados da Klebsiella pneumoniae (GSE307523)
+
+**Cepas**: NK01067 e ΔwbbM mutante, somente NK01067  foi utilizada na análise
+**Tratamento**:
+- Cultivo em caldo de lisogenia (controle)
+- Cultivo em caldo de lisogenia com 8 μg/L meropenem (tratamento)
+
+**Tamanho amostral**: 3 replicatas por tratamento
+
+### Dados da Pseudomonas aeruginosa (GSE167137)
+
+**Estudo**: Biofilmes de Pseudomonas aeruginosa (PAO1), em cultura isolada ou em co-cultura com Candida albicans. Somente a cultura isolada será usada na análise
+**Tratamento**:
+- Cultivo em caldo Mueller–Hinton  (controle)
+- Cultivo em caldo Mueller–Hinton com meropenem 5 µg/ml(tratamento)
+
+**Tamanho amostral**: 4 replicatas por tratamento
+**Período de coleta**: 4 horas.
+
+### Dados da Acinetobacter baumannii (GSE190441)
+
+**Tratamento**:
+- Cultivo em caldo Bushnell-Haas (controle)
+- Cultivo em caldo Bushnell-Haas com meropenem (tratamento)
+
+**Tamanho amostral**: 3 replicatas por tratamento
+**Período de coleta**: 30 minutos, 3 horas ou 9 horas de incubamento. O  período de 3 horas foi escolhido para corresponder com os outros estudos.
 
 # Modelo Lógico
 
