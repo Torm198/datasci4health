@@ -272,7 +272,15 @@ Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequen
 
 ---
 
+# Perspectivas Futuras
 
+Os resultados deste trabalho geram hipóteses que exigem validação experimental em três etapas.
+
+**Etapa 1 — Validação Causal por Edição Genômica.** A causalidade dos genes-hub identificados (e.g., *cefA* em *P. aeruginosa* e *A1S_3075* em *A. baumannii*) deverá ser confirmada por nocaute direcional via CRISPR-Cas9, seguido de ensaios de concentração inibitória mínima (CIM) para verificar a reversão do fenótipo de resistência ao Meropenem in vitro.
+
+**Etapa 2 — Quantificação do Sinergismo Farmacológico.** A hipótese de duplo impacto (agente de ruptura de membrana + inibidor ribossomal) será avaliada por meio do *checkerboard assay*, com cálculo do Índice de Concentração Inibitória Fracionada (ICIF).
+
+**Etapa 3 — Avaliação In Vivo em Modelos de Infecção.** A eficácia e toxicidade da estratégia combinatória serão testadas em modelos animais, iniciando por *Galleria mellonella* (modelo invertebrado de baixo custo) e, mediante resultados promissores, progredindo para modelos murinos de infecção sistêmica, seguindo protocolos estabelecidos para patógenos ESKAPE.
 
 # Referências Bibliográficas
 
