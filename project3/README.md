@@ -215,9 +215,16 @@ Os principais arquivos gerados pelo pipeline são:
 
 ### *Klebsiella pneumoniae*
 
-* 🟥 Ativação de reguladores globais (ex: *marA*)
-* 🟥 Proteção osmótica
-* 🟦 Ajustes metabólicos e indícios de transição para estados persistentes
+
+Os genes narG, narH, narI, narJ, narL, nirB, nirD e modC atuam no metabolismo de nitrogênio e respiração anaeróbica.
+Este grupo é essencial para a adaptação da bactéria a ambientes com baixa disponibilidade de oxigênio, como ocorre frequentemente durante a colonização de tecidos profundos no hospedeiro. A utilização de nitrato como receptor final de elétrons permite a manutenção do metabolismo energético nessas condições. Dentro desse sistema, os genes narG, narH, narI, narJ atuam na nitrato redutase, sendo componentes do complexo enzimático que catalisa a redução de nitrato; estudos de microarranjos mostram que esses genes são diferencialmente expressos em isolados clínicos sob estresse. O gene narL atua como regulador de resposta, sendo uma proteína que coordena a expressão de genes em resposta ao nitrato e nitrito, garantindo uma resposta metabólica eficiente. Já os genes nirB, nirD correspondem à nitrito redutase, que são enzimas que convertem nitrito em amônia, facilitando a assimilação de nitrogênio e prevenindo a toxicidade por nitrito na célula. Por fim, o gene modC é responsável pelo Transporte de Molibdênio, fazendo parte do transportador ABC que fornece o molibdênio, um cofator metálico indispensável para a atividade das enzimas nitrato redutases [^13] [^14] [^15].
+
+Resistência a antibióticos e estresse através do sistema mar
+O mar (Multiple Antibiotic Resistance) é um mecanismo central de resistência intrínseca que protege a bactéria contra uma ampla gama de agentes tóxicos, incluindo antibióticos e desinfetantes. O gene marA atua como um ativador transcricional que ativa a expressão de bombas de efluxo e regula porinas de membrana, diminuindo a concentração intracelular de antibióticos. Em contrapartida, o gene marR funciona como um repressor transcricional e atua como um sensor de estresse; sua inativação por mutações ou ligantes químicos leva à superexpressão de marA e consequente multirresistência [^16] [^17].
+
+Metabolismo de Carboidratos e Outros Sistemas
+A versatilidade metabólica da K. pneumoniae é sustentada por genes que permitem o uso de diversas fontes de carbono, o que é vital para a sobrevivência em diferentes nichos ecológicos. No sistema da trehalose, os genes principais treA, treB, treC atuam no transporte e quebra de trehalose, um açúcar que também atua como protetor contra estresse osmótico. No sistema da maltose, os genes malF, malM estão envolvidos na captação de maltodextrinas, componentes comuns no ambiente intestinal. No sistema do níquel, os genes nikA, nikB realizam o transporte de níquel, essencial para a enzima urease, que auxilia na sobrevivência em ambientes ácidos. Por fim, no sistema da D-serina, os genes dsdA, dsdX realizam o metabolismo da D-serina, frequentemente associado à colonização do trato urinário [^18] [^19] [^20] [^21].
+
 
 ![image2](./assets/pictures/kleb.jpg)
 
@@ -226,6 +233,17 @@ Os principais arquivos gerados pelo pipeline são:
 * 🟦 Redução da permeabilidade da membrana
 * 🟥 Ativação de mecanismos de resposta a dano no DNA (SOS)
 * 🟥 Presença de genes altamente conectados ainda não caracterizados
+
+Sistemas de Transporte de Enxofre e Taurina
+Um dos clusters mais proeminentes na rede envolve o transporte de compostos contendo enxofre. O meropenem, ao interferir na síntese da parede celular, gera um estado de estresse oxidativo e metabólico que exige a reorganização do fluxo de enxofre para a síntese de moléculas protetoras, como a glutationa, ou para a manutenção do potencial redox celular. Nesse sistema, o gene A1S_2531 atua como proteína de ligação ao substrato no sistema de transporte de Sulfato/Tiossulfato, o gene A1S_2532 funciona como proteína de transporte no sistema de transporte de Sulfato, e o gene A1S_2534 atua como permease de membrana no sistema de transporte de Sulfato/Tiossulfato. Adicionalmente, no sistema de transporte de Taurina (TauABC), o gene A1S_1442 atua como proteína de ligação ao substrato, o gene A1S_1443 funciona como proteína de ligação a ATP (ATPase), e o gene A1S_1444 atua como permease de membrana. A captação de taurina e sulfato é essencial para a sobrevivência bacteriana sob estresse, pois fornece precursores para a biossíntese de aminoácidos sulfurados e mecanismos de defesa contra espécies reativas de oxigênio (ROS) induzidas por antibióticos [^22]. 
+
+Homeostase de Cobre e Resposta a Metais
+A rede identifica um cluster dedicado ao efluxo de cobre (Cu+). Em A. baumannii, a regulação de metais pesados está intimamente ligada à virulência e à resistência, uma vez que o excesso de cobre intracelular pode catalisar reações de Fenton, agravando o dano oxidativo. O gene A1S_1218 (HmrR) é um regulador transcricional da família MerR que atua como sensor de cobre, ativando a expressão do sistema de efluxo quando detecta níveis tóxicos de metal. O gene A1S_1217 é uma ATPase do tipo P responsável pelo transporte ativo de Cu+ para fora da célula, prevenindo a toxicidade. Já o gene A1S_3627 atua como uma chaperona de cobre que direciona os íons metálicos para os transportadores de efluxo, evitando que fiquem livres no citoplasma [^23] [^24].
+
+Metabolismo de Ácido Fenilacético (Paa)
+Os genes A1S_1337 (PaaB) e A1S_1338 (PaaC) fazem parte do complexo epoxidase de anel-1,2-fenilacetil-CoA. Este sistema é responsável pela degradação do ácido fenilacético, uma via metabólica central que tem sido associada à patogenicidade de A. baumannii. A modulação desta via sob estresse por meropenem sugere um redirecionamento do metabolismo energético. Estudos indicam que a repressão da via Paa pode reduzir a quimiotaxia de neutrófilos, auxiliando a bactéria a evitar a resposta imune do hospedeiro durante o tratamento antibiótico 5.
+A análise da rede gênica demonstra que o Acinetobacter baumannii responde ao meropenem não apenas através de mecanismos clássicos de resistência (como carbapenemases), mas também através de uma adaptação metabólica sistêmica. A regulação coordenada de transportadores de nutrientes e sistemas de efluxo de metais indica um esforço celular para manter a integridade fisiológica e combater o estresse oxidativo colateral causado pelo antibiótico [^22] [^23] [^24] [^25].
+
 
 ![image3](./assets/pictures/aci.jpg)
 
@@ -292,7 +310,20 @@ Os resultados deste trabalho geram hipóteses que exigem validação experimenta
 [^6]: Zeng X, Lin J. Beta-lactamase induction and cell wall metabolism in Gram-negative bacteria. Front Microbiol. 2013;4:128. doi:10.3389/fmicb.2013.00128 PubMed PMID: 23734147; PubMed Central PMCID: PMC3660660.  
 [^7]: Li XZ, Plésiat P, Nikaido H. The challenge of efflux-mediated antibiotic resistance in Gram-negative bacteria. Clin Microbiol Rev. abril de 2015;28(2):337–418. doi:10.1128/CMR.00117-14 PubMed PMID: 25788514; PubMed Central PMCID: PMC4402952.  
 [^8]: Coyne S, Courvalin P, Périchon B. Efflux-Mediated Antibiotic Resistance in Acinetobacter spp. Antimicrob Agents Chemother. março de 2011;55(3):947–53. doi:10.1128/AAC.01388-10 PubMed PMID: 21173183; PubMed Central PMCID: PMC3067115.  
-[^9]: Padilla E, Llobet E, Doménech-Sánchez A, Martínez-Martínez L, Bengoechea JA, Albertí S. Klebsiella pneumoniae AcrAB Efflux Pump Contributes to Antimicrobial Resistance and Virulence. Antimicrob Agents Chemother. janeiro de 2010;54(1):177–83. doi:10.1128/AAC.00715-09 PubMed PMID: 19858254; PubMed Central PMCID: PMC2798511.  
-[^10]: Wang Z, Gerstein M, Snyder M. RNA-Seq: a revolutionary tool for transcriptomics. Nat Rev Genet. janeiro de 2009;10(1):57–63. doi:10.1038/nrg2484 PubMed PMID: 19015660; PubMed Central PMCID: PMC2949280.  
+[^9]: Padilla E, Llobet E, Doménech-Sánchez A, Martínez-Martínez L, Bengoechea JA, Albertí S. Klebsiella pneumoniae AcrAB Efflux Pump Contributes to Antimicrobial Resistance and Virulence. Antimicrob Agents Chemother. janeiro de 2010;54(1):177–83. doi:10.1128/AAC.00715-09 PubMed PMID: 19858254; PubMed Central PMCID: PMC2798511.    
 [^11]: Barabási AL, Oltvai ZN. Network biology: understanding the cell’s functional organization. Nat Rev Genet. fevereiro de 2004;5(2):101–13. doi:10.1038/nrg1272  
 [^12]: Langfelder P, Horvath S. WGCNA: an R package for weighted correlation network analysis. BMC Bioinformatics. 29 de dezembro de 2008;9:559. doi:10.1186/1471-2105-9-559 PubMed PMID: 19114008; PubMed Central PMCID: PMC2631488.
+[^13]: Doménech-Sánchez, A., et al. (2006). Evaluation of differential gene expression in susceptible and resistant clinical isolates of Klebsiella pneumoniae by DNA microarray analysis. Clinical Microbiology and Infection, 12(9), 936–940.
+[^14]: Stewart, V. (1994). Nitrate-dependent gene expression in Enterobacteriaceae. Archives of Microbiology, 162, 1–10.
+[^15]: EcoCyc Database. Encyclopedia of Escherichia coli K-12 Genes and Metabolism. ecocyc.org.
+[^16]: Alekshun, M. N., & Levy, S. B. (1997). Regulation of chromosomally mediated multiple antibiotic resistance: the mar regulon. Antimicrobial Agents and Chemotherapy, 41(10), 2067–2075.
+[^17]: Martin, R. G., & Rosner, J. L. (2002). Transcriptional and translational regulation of the mar (multiple antibiotic resistance) locus. Current Opinion in Microbiology, 5(2), 144–149.
+[^18]: UniProt Consortium. (2024). UniProt: the world’s protein information resource. uniprot.org.
+[^19]: Lin, C. T., et al. (2010). Expanded Role for the Nitrogen Assimilation Control Protein (NAC) in Klebsiella pneumoniae. Journal of Bacteriology, 192(19), 4914–4925.
+[^20]: EcoCyc Database. Encyclopedia of Escherichia coli K-12 Genes and Metabolism.
+[^21]: Lau, H. Y., et al. (2007). Identification of Klebsiella pneumoniae genes uniquely expressed in a strain virulent using a murine model of bacterial pneumonia. Microbial Pathogenesis, 42(4), 148–155.
+[^22]: Zhang, S., et al. (2024). The role of universal stress protein Usp1413 in meropenem adaptive resistance and environmental stress responses in Acinetobacter baumannii. Current Research in Microbial Sciences, 8, 100332. https://doi.org/10.1016/j.crmicr.2024.100332
+[^23]: Bhardwaj, P., et al. (2020). Genome-Scale Metabolic Modeling Reveals Metabolic Alterations of Acinetobacter baumannii in Response to Antibiotic Stress. Microorganisms, 8(11), 1793.
+[^24]: UniProt Consortium. (2024). Acinetobacter baumannii (strain ATCC 17978) Functional Genomics Database.
+[^25]: Gao, Q., et al. (2019). Two Phenotype-Differentiated Acinetobacter baumannii Mutants That Survived in a Meropenem Selection Display Large Differences in Their Transcription Profiles. Frontiers in Microbiology, 10, 2308. https://doi.org/10.3389/fmicb.2019.02308
+
