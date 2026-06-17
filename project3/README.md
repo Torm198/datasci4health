@@ -271,15 +271,6 @@ Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequen
 * **Vetor de Ruptura Universal:** Uso combinado de Polimixinas ou Sideróforos para garantir uma ação mecânica de quebra de barreira que independe inteiramente de porinas ou de enzimas de resistência.  
 * **Bloqueio Ortólogo e Colapso Final:** Com as vias de acesso liberadas, os inibidores de tradução ligam-se irreversivelmente aos genes *rpl/rps*. Ao travar o maquinário de síntese proteica universal, o sistema induz a falência total das estratégias espécie-especificas: o escudo de trealose é perdido, o sistema de secreção Tipo VI (T6SS) é desativado e as bombas de efluxo entram em colapso definitivo.
 
-
-## Próximos passos
-
-* **Validação** - Edição via CRISPR-Cas: Provar a causalidade através do nocaute direcional dos hubs isolados (ex: cefA ou A1S_3075).
-* **Sinergismo** - Checkerboard Assay: Cálculo do Índice FIC entre agentes de ruptura (Polimixinas) e inibidores ribossomais.
-* **In Vivo** - Modelos de Infecção: Ensaios de sobrevida em Galleria mellonella ou murinos para avaliar eficácia clínica.
-
----
-
 ---
 
 # Ferramentas
