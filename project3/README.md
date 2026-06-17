@@ -12,8 +12,8 @@ O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do
 
 # Slides 
 
-Disponível neste [link]()
-- [View slides as PDF]()
+Disponível neste [link](https://docs.google.com/presentation/d/1YS4jg-3OEEbp7DpO3mW2ukx-kcbKRH9DY7x8nnk-bhM/edit?usp=sharing)
+
 
 # Fundamentação Teórica
 
@@ -172,11 +172,11 @@ O pipeline gera redes de diferentes perspectivas:
 * **Rede de pathways**: integra genes e pathways enriquecidos, destacando KOs associados a pathways significativos.
 * **Rede final com hubs**: adiciona nós representando pathways enriquecidos, formando uma estrutura em estrela para facilitar visualização em Cytoscape.
 
-Além disso, o código consulta a base **STRING** para redes de interação proteína-proteína por espécie, calculando métricas de importância como:
+Além disso, o código consulta a base **STRING** para redes de interação proteína-proteína por espécie, onde estabelecemos métricas de importância como:
 
 * `ortho_score` — número de conexões cross-espécie na rede ortológica.
 * `string_score` — número de interações PPI retornadas pela base STRING.
-* `impact_score` — combinação normalizada de `ortho_score` e `string_score` multiplicada por `|LFC|`.
+* `impact_score` — A soma entre `ortho_score` e `string_score`.
 
 O resultado também inclui gráficos e tabelas de top genes por impacto.
 
