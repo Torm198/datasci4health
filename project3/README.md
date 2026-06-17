@@ -65,33 +65,17 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 | GhostKOALA (KEGG Automatic Annotation Server) | https://www.kegg.jp/ghostkoala/ | Ferramenta utilizada para anotação funcional das sequências proteicas, atribuindo identificadores KO (KEGG Orthology) a cada proteína dos três genomas de referência. Output: arquivos `*_annotation.txt` com mapeamento `protein_id → KO`. |                                                                                                             |
 ## Descrição dos dados de experimento
 
-### Dados da Klebsiella pneumoniae (GSE307523)
+Os três datasets compartilham o mesmo design geral (controle sem antibiótico vs. tratamento com meropenem, com reads de RNA-Seq mapeados por gene), mas diferem em condições experimentais relevantes que constituem uma limitação metodológica a ser considerada na interpretação dos resultados:
 
-**Cepas**: NK01067 e ΔwbbM mutante, somente NK01067  foi utilizada na análise
-**Tratamento**:
-- Cultivo em caldo de lisogenia (controle)
-- Cultivo em caldo de lisogenia com 8 μg/L meropenem (tratamento)
+| Parâmetro                  | *K. pneumoniae* (GSE307523) | *A. baumannii* (GSE190441) | *P. aeruginosa* (GSE167137) |
+| :------------------------- | :-------------------------- | :------------------------- | :--------------------------- |
+| Meio de cultura            | Caldo de lisogenia (LB)     | Caldo Bushnell-Haas        | Caldo Mueller–Hinton         |
+| Concentração de meropenem  | 8 μg/L                      | Não especificada           | 5 μg/mL                      |
+| Tempo de coleta            | Não especificado             | 3 horas (selecionado)      | 4 horas                      |
+| Replicatas por grupo       | 3                           | 3                          | 4                            |
+| Modo de crescimento        | Planctônico                 | Planctônico                | Biofilme                     |
 
-**Tamanho amostral**: 3 replicatas por tratamento
-
-### Dados da Pseudomonas aeruginosa (GSE167137)
-
-**Estudo**: Biofilmes de Pseudomonas aeruginosa (PAO1), em cultura isolada ou em co-cultura com Candida albicans. Somente a cultura isolada será usada na análise
-**Tratamento**:
-- Cultivo em caldo Mueller–Hinton  (controle)
-- Cultivo em caldo Mueller–Hinton com meropenem 5 µg/ml(tratamento)
-
-**Tamanho amostral**: 4 replicatas por tratamento
-**Período de coleta**: 4 horas.
-
-### Dados da Acinetobacter baumannii (GSE190441)
-
-**Tratamento**:
-- Cultivo em caldo Bushnell-Haas (controle)
-- Cultivo em caldo Bushnell-Haas com meropenem (tratamento)
-
-**Tamanho amostral**: 3 replicatas por tratamento
-**Período de coleta**: 30 minutos, 3 horas ou 9 horas de incubamento. O  período de 3 horas foi escolhido para corresponder com os outros estudos.
+Diferenças nos meios de cultura e concentrações de antibiótico podem, no entanto, contribuir para variações de LFC não relacionadas à resistência ao meropenem per se, o que deve ser considerado na extrapolação dos achados para contextos clínicos.
 
 # **Metodologia**
 
