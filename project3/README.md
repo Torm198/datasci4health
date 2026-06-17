@@ -7,7 +7,8 @@
 # Descrição Resumida do Projeto
 
 
-O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do grupo ESKAPE, especificamente *Klebsiella pneumoniae*, *Acinetobacter baumannii* e *Pseudomonas aeruginosa*, quando submetidos ao estresse pelo antibiótico Meropenem. A motivação central reside no fato de que a resistência antimicrobiana não é um evento isolado de um único gene, mas uma propriedade emergente de sistemas biológicos complexos que se organizam para garantir a sobrevivência bacteriana. No contexto clínico atual, essas três bactérias representam as ameaças mais críticas em ambientes hospitalares devido à sua capacidade de "escapar" da ação de carbapenêmicos, que são frequentemente a última linha de defesa terapêutica. O problema abordado pelo projeto é a falta de uma visão sistêmica e comparativa que identifique se diferentes espécies utilizam uma arquitetura de rede comum para resistir ao mesmo fármaco. Utilizando dados de transcriptoma (RNA-Seq) obtidos de bases públicas, o trabalho emprega a Ciência de Redes para transformar níveis de expressão gênica em grafos de coexpressão, onde os genes atuam como nós e suas correlações funcionais como arestas. O objetivo final é realizar uma análise visual e topológica para identificar genes-hub e módulos de resistência conservados, permitindo determinar se existe um "core" transcriptômico universal que possa ser explorado como alvo para novas estratégias de tratamento que ignorem as fronteiras entre espécies.
+O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do grupo ESKAPE, especificamente *Klebsiella pneumoniae*, *Acinetobacter baumannii* e *Pseudomonas aeruginosa*, quando submetidos ao estresse pelo antibiótico Meropenem. A motivação central reside no fato de que a resistência antimicrobiana não é um evento isolado de um único gene, mas uma propriedade emergente de sistemas biológicos complexos que se organizam para garantir a sobrevivência bacteriana. No contexto clínico atual, essas três bactérias representam as ameaças mais críticas em ambientes hospitalares devido à sua capacidade de "escapar" da ação de carbapenêmicos, que são frequentemente a última linha de defesa terapêutica. O problema abordado pelo projeto é a falta de uma visão sistêmica e comparativa que identifique se diferentes espécies utilizam uma arquitetura de rede comum para resistir ao mesmo fármaco. Utilizando dados de transcriptoma (RNA-Seq) obtidos de bases públicas, o trabalho emprega a Ciência de Redes para transformar níveis de expressão gênica em grafos de coexpressão, onde os genes atuam como nós e suas correlações funcionais como arestas. O objetivo final é realizar uma análise visual e topológica para identificar genes-hub e módulos de resistência conservados, permitindo determinar se existe um "core" transcriptômico universal que possa ser explorado como alvo para novas estratégias de tratamento que ignorem as fronteiras entre espécies. 
+Para investigar essa questão, foram empregados dados de RNA-Seq obtidos do repositório NCBI GEO para três espécies — K. pneumoniae (GSE307523), A. baumannii (GSE190441) e P. aeruginosa (GSE167137) — submetidas a estresse por Meropenem. O pipeline integrou quantificação por Log2 Fold-Change, mapeamento de ortologia funcional via KEGG Orthology (KO) e análise de enriquecimento de vias (ORA, teste exato de Fisher com correção FDR), seguida de construção de redes de coexpressão visualizadas no Cytoscape. Os resultados identificaram um core ortólogo de KOs diferencialmente expressos nas três espécies simultaneamente, com os genes de maior impacto sistêmico concentrados nas famílias ribossomais rpl e rps. Esses achados sugerem que, apesar de táticas de resistência diferentes, todas as espécies analisadas dependem da síntese proteica para montar suas defesas.
 
 
 # Slides 
@@ -58,9 +59,10 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 | NCBI GEO – GSE307523 (*Klebsiella pneumoniae*)      | [https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE307523](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE307523) | Dataset de RNA-Seq contendo dados da cepa NK01067. Inclui condições controle (cultivo em caldo de lisogenia) e tratamento com meropenem (8 μg/L), com 3 replicatas por grupo. Utilizado para analisar a resposta transcriptômica da espécie ao antibiótico. |
 | NCBI GEO – GSE190441 (*Acinetobacter baumannii*)    | [https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE190441](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE190441) | Dataset de RNA-Seq com amostras em caldo Bushnell-Haas, sob condição controle e tratamento com meropenem. Contém medições em diferentes tempos (30 min, 3h, 9h), sendo selecionado o tempo de 3 horas para padronização, com 3 replicatas por grupo.        |
 | NCBI GEO – GSE167137 (*Pseudomonas aeruginosa*)     | [https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE167137](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE167137) | Dataset de RNA-Seq de biofilmes da cepa PAO1. Considera apenas cultura isolada (excluindo co-cultura com *Candida albicans*). Inclui controle e tratamento com meropenem (5 μg/ml), com 4 replicatas por grupo e coleta após 4 horas.                       |
+| NCBI RefSeq – Genoma de referência | https://www.ncbi.nlm.nih.gov/datasets/genome/ | Arquivos GFF3 e FASTA de proteínas (.faa) utilizados como entrada para anotação funcional via GhostKOALA. |
 | STRING Database                                     | [https://string-db.org/](https://string-db.org/)                                                                             | Base utilizada para enriquecimento das análises com interações proteína-proteína, permitindo a construção de redes a partir dos genes diferencialmente expressos.                                                                                           |
-| KEGG (Kyoto Encyclopedia of Genes and Genomes)      | [https://www.genome.jp/kegg/](https://www.genome.jp/kegg/)                                                                   | Utilizada (planejado) para construção de um dicionário de ortologia entre espécies, permitindo a comparação funcional entre genes de diferentes bactérias.                                                                                                  |
-| Comprehensive Antibiotic Resistance Database (CARD) | [https://card.mcmaster.ca/](https://card.mcmaster.ca/)                                                                       | Base de referência para anotação de genes de resistência, auxiliando na interpretação biológica dos genes identificados como hubs nas redes.                                                                                                                |
+| KEGG (Kyoto Encyclopedia of Genes and Genomes)      | [https://www.genome.jp/kegg/](https://www.genome.jp/kegg/)                                                                   | Utilizada para construção de um dicionário de ortologia entre espécies, permitindo a comparação funcional entre genes de diferentes bactérias.                                                                                                  |
+| GhostKOALA (KEGG Automatic Annotation Server) | https://www.kegg.jp/ghostkoala/ | Ferramenta utilizada para anotação funcional das sequências proteicas, atribuindo identificadores KO (KEGG Orthology) a cada proteína dos três genomas de referência. Output: arquivos `*_annotation.txt` com mapeamento `protein_id → KO`. |                                                                                                             |
 ## Descrição dos dados de experimento
 
 ### Dados da Klebsiella pneumoniae (GSE307523)
@@ -92,6 +94,19 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 **Período de coleta**: 30 minutos, 3 horas ou 9 horas de incubamento. O  período de 3 horas foi escolhido para corresponder com os outros estudos.
 
 # **Metodologia**
+
+
+## Ferramentas
+
+* **Python (Pandas, NumPy):** processamento e análise de dados
+* **NCBI GEO:** obtenção dos datasets
+* **STRING DB:** construção inicial de redes de interação
+* **KEGG API:** construção do dicionário de ortologia
+    * **GhostKOALA** Atribuição automática de KO e serviço de mapeamento do KEGG
+
+---
+
+## Pipeline de tratamento
 
 ![metodologia1](./assets/pictures/metologia.png)
 ![metodologia2](./assets/pictures/metologia_p2.png)
@@ -273,15 +288,6 @@ Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequen
 
 ---
 
-# Ferramentas
-
-* **Python (Pandas, NumPy):** processamento e análise de dados
-* **NCBI GEO:** obtenção dos datasets
-* **STRING DB:** construção inicial de redes de interação
-* **KEGG API:** construção do dicionário de ortologia
-
-
----
 
 
 # Referências Bibliográficas
