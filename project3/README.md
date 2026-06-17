@@ -213,6 +213,10 @@ Os principais arquivos gerados pelo pipeline são:
 
 * Cada bactéria apresenta uma **estratégia distinta de resistência**, mas com padrões funcionais recorrentes:
 
+Em cada grafo cores representação a expressão diferencial dada pelo logFC:
+* 🟦 Menos expressa que o grupo controle
+* 🟥 Mais expressa que o grupo controle
+
 ### *Klebsiella pneumoniae*
 
 
@@ -230,10 +234,6 @@ A versatilidade metabólica da K. pneumoniae é sustentada por genes que permite
 
 ### *Acinetobacter baumannii*
 
-* 🟦 Redução da permeabilidade da membrana
-* 🟥 Ativação de mecanismos de resposta a dano no DNA (SOS)
-* 🟥 Presença de genes altamente conectados ainda não caracterizados
-
 Sistemas de Transporte de Enxofre e Taurina
 Um dos clusters mais proeminentes na rede envolve o transporte de compostos contendo enxofre. O meropenem, ao interferir na síntese da parede celular, gera um estado de estresse oxidativo e metabólico que exige a reorganização do fluxo de enxofre para a síntese de moléculas protetoras, como a glutationa, ou para a manutenção do potencial redox celular. Nesse sistema, o gene A1S_2531 atua como proteína de ligação ao substrato no sistema de transporte de Sulfato/Tiossulfato, o gene A1S_2532 funciona como proteína de transporte no sistema de transporte de Sulfato, e o gene A1S_2534 atua como permease de membrana no sistema de transporte de Sulfato/Tiossulfato. Adicionalmente, no sistema de transporte de Taurina (TauABC), o gene A1S_1442 atua como proteína de ligação ao substrato, o gene A1S_1443 funciona como proteína de ligação a ATP (ATPase), e o gene A1S_1444 atua como permease de membrana. A captação de taurina e sulfato é essencial para a sobrevivência bacteriana sob estresse, pois fornece precursores para a biossíntese de aminoácidos sulfurados e mecanismos de defesa contra espécies reativas de oxigênio (ROS) induzidas por antibióticos [^22]. 
 
@@ -249,9 +249,19 @@ A análise da rede gênica demonstra que o Acinetobacter baumannii responde ao m
 
 ### *Pseudomonas aeruginosa*
 
-* 🟥 Forte ativação de enzimas degradadoras de antibióticos (ex: beta-lactamases)
-* 🟥 Ativação de sistemas de competição bacteriana (T6SS)
-* 🟦 Repressão de mecanismos que poderiam levar à autodestruição celular
+
+Mecanismos de Resistência e Estresse de Parede Celular
+O meropenem atua inibindo as proteínas de ligação à penicilina (PBPs) e compromete a estrutura do peptideoglicano que forma a parede bacteriana. Em resposta, a bactéria ativa a via AmpR-AmpC. O gene ampR codifica um regulador transcricional da família LysR que monitora a integridade da célula; ao detectar o acúmulo de fragmentos de peptideoglicano danificados, ele imediatamente induz a expressão da β-lactamase AmpC. Ao mesmo tempo, a rede regulatória reage por meio do fator sigma de função extracitoplasmática (ECF) chamado AlgU (ou AlgT). Diante do estresse de parede gerado pelos β-lactâmicos, o AlgU se liberta de sua proteína anti-sigma MucA e assume o comando, coordenando os genes responsáveis pelo reparo da membrana e pela produção de alginato, o que pode levar ao fenótipo mucoide em infecções crônicas [^26] [^27] [^28] [^29].
+Bombas de Efluxo e Permeabilidade de Membrana
+A regulação da concentração intracelular de meropenem é um ponto crítico da rede de sobrevivência. A P. aeruginosa utiliza bombas de efluxo multidrogas, como o sistema MexAB-OprM, que é frequentemente regulado positivamente sob estresse para expulsar o antibiótico antes que ele atinja seus alvos. Paralelamente, ocorre a repressão da porina OprD, a principal via de entrada de carbapenêmicos na célula. A diminuição da expressão de oprD é mediada por diversos reguladores, incluindo o sistema de dois componentes CzxRS e o regulador SmeR, que respondem a sinais de estresse ambiental e presença de antibióticos, reduzindo a permeabilidade da membrana externa ao meropenem [^30] [^31] [^32].
+
+Transição para Biofilme e Resposta Global (Gac/Rsm)
+Um dos aspectos mais complexos da rede regulatória da P. aeruginosa sob estresse ao meropenem é a transição do estilo de vida de células livres para o de biofilme. Este processo é mediado pelo sistema global GacS/GacA, que regula a produção dos pequenos RNAs RsmY e RsmZ. Sob condições de estresse por antibióticos, esta via é ativada, sequestrando a proteína RsmA e permitindo a tradução de genes associados à formação de biofilme e produção de exopolissacarídeos. A formação de biofilme atua como uma barreira física e fisiológica, aumentando a tolerância ao meropenem [^33] [^34] [^35] [^36].
+
+Resposta a Danos
+Embora o meropenem atinja a parede celular, o estresse fisiológico resultante pode levar a danos secundários. Regulada pela proteína RecA e pelo repressor LexA, esta rede induz genes de reparo de DNA e pode aumentar a taxa de mutação adaptativa, facilitando a resistência secundária durante o tratamento. Estudos de transcriptômica avançada mostram que a exposição ao meropenem altera significativamente a atividade de iModulons relacionados à divisão celular e ao metabolismo central, refletindo uma tentativa da célula de reprogramar seu crescimento para sobreviver à agressão química [^30].
+
+
 
 ![image3](./assets/pictures/pa.jpg)
 
@@ -326,4 +336,14 @@ Os resultados deste trabalho geram hipóteses que exigem validação experimenta
 [^23]: Bhardwaj, P., et al. (2020). Genome-Scale Metabolic Modeling Reveals Metabolic Alterations of Acinetobacter baumannii in Response to Antibiotic Stress. Microorganisms, 8(11), 1793.
 [^24]: UniProt Consortium. (2024). Acinetobacter baumannii (strain ATCC 17978) Functional Genomics Database.
 [^25]: Gao, Q., et al. (2019). Two Phenotype-Differentiated Acinetobacter baumannii Mutants That Survived in a Meropenem Selection Display Large Differences in Their Transcription Profiles. Frontiers in Microbiology, 10, 2308. https://doi.org/10.3389/fmicb.2019.02308
-
+[^26]: UniProt Consortium. (2024). UniProt: the world’s protein information resource. uniprot.org.
+[^27]: Balasubramanian, D., et al. (2015). Pseudomonas aeruginosa AmpR: an acute–chronic switch regulator. Antiviral Chemistry and Chemotherapy, 24(2), 39–48.
+[^28]: Sun, Z., et al. (2014). Structural changes and differentially expressed genes in Pseudomonas aeruginosa exposed to meropenem-ciprofloxacin combination. Antimicrobial Agents and Chemotherapy, 58(7), 3610–3621.
+[^29]: Bazire, A., et al. (2010). The sigma factor AlgU plays a key role in formation of robust biofilms by nonmucoid Pseudomonas aeruginosa. Journal of Bacteriology, 192(12), 3001–3010.
+[^30]: Rajput, A., et al. (2022). Advanced transcriptomic analysis reveals the role of efflux pumps and media composition in antibiotic responses of Pseudomonas aeruginosa. Nucleic Acids Research, 50(17), 9675–9688
+[^31]: Piddock, L. J. (2006). Multidrug-resistance efflux pumps — not just for resistance. Nature Reviews Microbiology, 4(8), 629–636.
+[^32]: Kim, M., et al. (2020). Transcriptomic determinants of the response of ST-111 high-risk Pseudomonas aeruginosa strain to ciprofloxacin. Scientific Reports, 10(1), 1–13.
+[^33]: Goodman, A. L., et al. (2004). A signaling network reciprocal control of Pseudomonas aeruginosa virulence factors. Developmental Cell, 7(5), 745–754.
+[^34]: Brencic, A., & Lory, S. (2009). Determination of the regulon and identification of novel targets of the Pseudomonas aeruginosa RsmA protein. Molecular Microbiology, 72(3), 612–632.
+[^35]: Taylor, P. K., et al. (2014). The Gac/Rsm and cyclic-di-GMP signalling networks coordinately regulate biofilm formation in Pseudomonas aeruginosa. BMC Microbiology, 14(1), 1–15.
+[^36]: Hall, C. W., & Mah, T. F. (2017). Molecular mechanisms of biofilm-based antibiotic resistance and tolerance in pathogenic bacteria. FEMS Microbiology Reviews, 41(3), 276–301.
