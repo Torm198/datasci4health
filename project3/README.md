@@ -11,8 +11,7 @@ O projeto Atlas da Resistência investiga a resposta adaptativa de patógenos do
 
 
 # Slides 
- 
-!!! ADICIONAR !!!!
+
 Disponível neste [link]()
 - [View slides as PDF]()
 
@@ -62,7 +61,35 @@ Nesse contexto, a transcriptômica, através do sequenciamento de RNA (RNA-Seq),
 | STRING Database                                     | [https://string-db.org/](https://string-db.org/)                                                                             | Base utilizada para enriquecimento das análises com interações proteína-proteína, permitindo a construção de redes a partir dos genes diferencialmente expressos.                                                                                           |
 | KEGG (Kyoto Encyclopedia of Genes and Genomes)      | [https://www.genome.jp/kegg/](https://www.genome.jp/kegg/)                                                                   | Utilizada (planejado) para construção de um dicionário de ortologia entre espécies, permitindo a comparação funcional entre genes de diferentes bactérias.                                                                                                  |
 | Comprehensive Antibiotic Resistance Database (CARD) | [https://card.mcmaster.ca/](https://card.mcmaster.ca/)                                                                       | Base de referência para anotação de genes de resistência, auxiliando na interpretação biológica dos genes identificados como hubs nas redes.                                                                                                                |
+## Descrição dos dados de experimento
 
+### Dados da Klebsiella pneumoniae (GSE307523)
+
+**Cepas**: NK01067 e ΔwbbM mutante, somente NK01067  foi utilizada na análise
+**Tratamento**:
+- Cultivo em caldo de lisogenia (controle)
+- Cultivo em caldo de lisogenia com 8 μg/L meropenem (tratamento)
+
+**Tamanho amostral**: 3 replicatas por tratamento
+
+### Dados da Pseudomonas aeruginosa (GSE167137)
+
+**Estudo**: Biofilmes de Pseudomonas aeruginosa (PAO1), em cultura isolada ou em co-cultura com Candida albicans. Somente a cultura isolada será usada na análise
+**Tratamento**:
+- Cultivo em caldo Mueller–Hinton  (controle)
+- Cultivo em caldo Mueller–Hinton com meropenem 5 µg/ml(tratamento)
+
+**Tamanho amostral**: 4 replicatas por tratamento
+**Período de coleta**: 4 horas.
+
+### Dados da Acinetobacter baumannii (GSE190441)
+
+**Tratamento**:
+- Cultivo em caldo Bushnell-Haas (controle)
+- Cultivo em caldo Bushnell-Haas com meropenem (tratamento)
+
+**Tamanho amostral**: 3 replicatas por tratamento
+**Período de coleta**: 30 minutos, 3 horas ou 9 horas de incubamento. O  período de 3 horas foi escolhido para corresponder com os outros estudos.
 
 # **Metodologia**
 
@@ -181,19 +208,9 @@ Os principais arquivos gerados pelo pipeline são:
 
 ---
 
+# Resultados
 
-# Análise Preliminar
-
-Uma análise preliminar foi conduzida com base nos três datasets selecionados, focando na identificação de genes diferencialmente expressos sob estresse por meropenem.
-
-Os principais passos realizados foram:
-
-* Separação das amostras em grupos **controle vs. tratado**
-* Cálculo de **log2 Fold-Change (log2FC)** para cada gene
-* Aplicação de um threshold de |log2FC| ≥ 1 (equivalente a ≥ 2x de variação)
-* Seleção dos **50 genes mais relevantes por espécie**
-
-## Principais achados iniciais
+## Manifestação da resistência ao Meropenem
 
 * Cada bactéria apresenta uma **estratégia distinta de resistência**, mas com padrões funcionais recorrentes:
 
@@ -221,11 +238,47 @@ Os principais passos realizados foram:
 
 ![image3](./assets/pictures/pa.jpg)
 
-## Limitações identificadas
+### Rede comdinadas
 
-* Baixo número de replicatas limita a robustez estatística
-* Nem todos os genes possuem correspondência na base STRING
-* Redes iniciais apresentaram fragmentação (muitos nós desconectados)
+![combined](./assets/pictures/combined_edges.png)
+![combined2](./assets/pictures/combined_edges_2.png)
+> Legenda:
+> - 🟦 Acinetobacter
+> - 🟩 Klebisbella
+> - 🟪 Pseudomonas
+
+### Expressão vs. Conectividade
+![evc](./assets/pictures/ortologia_alvos.jpg)
+
+
+### Discussão
+A análise de rede revelou uma alta ortologia (identificada visualmente pelas "bolhas gigantes") entre os genomas de *Klebsiella*, *Pseudomonas* e *Acinetobacter*. No topo dessa topologia biológica, destaca-se o Eixo Ribossomal, caracterizado por uma super-representação massiva das famílias de genes estruturais **rpl** (subunidade 50S) e **rps** (subunidade 30S).
+
+Essa arquitetura evidencia uma fraqueza em comum: independentemente das táticas individuais de virulência de cada espécie, todas dependem criticamente de uma alta taxa de síntese proteica para montar suas respostas defensivas. Como conclusão terapêutica, o modelo valida que a inibição direcionada a esses alvos conservados é a chave para quebrar a resistência de amplo espectro.
+
+O modelo de combate simulado opera em um sistema de duplo impacto:
+
+* **O Ataque Primário:** O uso do beta-lactâmico (Meropenem) atua diretamente na ruptura das PBPs (Penicillin-Binding Proteins), fissurando a integridade da parede celular. Esse estresse mecânico e fisiológico força a bactéria a acionar emergencialmente seu maquinário de defesa sistêmica.  
+* **O Golpe Final:** Aproveitando a vulnerabilidade da parede celular desestruturada, ocorre a infiltração massiva dos inibidores de tradução. Uma vez no meio intracelular, eles travam de forma instantânea os alvos ortólogos superexpressos (*rpl/rps*), neutralizando a capacidade de resposta do patógeno.
+
+Contudo, os dados acenderam um alerta vermelho para o *Acinetobacter*. Esta espécie apresenta uma clara **fuga do dogma central** observado nas demais bactérias, desviando-se completamente dos grandes *hubs* hiperconectados da rede. Seus genes de maior *Impact Score* (indicador númeor de interações na rede ortológica e na base STRING), como o *A1S\_3075*, operam de forma isolada na base do gráfico, indicando uma independência estrutural única.  
+Essa assinatura reflete uma **tática de guerrilha metabólica**: para sobreviver, o *Acinetobacter* não gasta energia reprogramando grandes complexos proteicos; em vez disso, recruta enzimas autossuficientes e transportadores periféricos, garantindo sua defesa com o menor custo energético possível.
+
+Essa autonomia do *Acinetobacter* gera o **Paradoxo da Entrega**: embora o bloqueio ribossomal seja uma estratégia de amplo espectro poderosa, ele esbarra na impermeabilidade natural da membrana dessa bactéria. A repressão severa de porinas (nó *A1S\_0292/OmpW*) impede que o Meropenem cause a fissura necessária para a entrada dos outros fármacos.  
+Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequenciais:
+
+* **Cavalo de Troia:** Substituição do vetor de entrada pelo Cefiderocol (cefalosporina siderófora), que sequestra o sistema de captação de ferro da própria bactéria para penetrar ativamente na célula, ignorando o fechamento das porinas.  
+* **Vetor de Ruptura Universal:** Uso combinado de Polimixinas ou Sideróforos para garantir uma ação mecânica de quebra de barreira que independe inteiramente de porinas ou de enzimas de resistência.  
+* **Bloqueio Ortólogo e Colapso Final:** Com as vias de acesso liberadas, os inibidores de tradução ligam-se irreversivelmente aos genes *rpl/rps*. Ao travar o maquinário de síntese proteica universal, o sistema induz a falência total das estratégias espécie-especificas: o escudo de trealose é perdido, o sistema de secreção Tipo VI (T6SS) é desativado e as bombas de efluxo entram em colapso definitivo.
+
+
+## Próximos passos
+
+* **Validação** - Edição via CRISPR-Cas: Provar a causalidade através do nocaute direcional dos hubs isolados (ex: cefA ou A1S_3075).
+* **Sinergismo** - Checkerboard Assay: Cálculo do Índice FIC entre agentes de ruptura (Polimixinas) e inibidores ribossomais.
+* **In Vivo** - Modelos de Infecção: Ensaios de sobrevida em Galleria mellonella ou murinos para avaliar eficácia clínica.
+
+---
 
 ---
 
