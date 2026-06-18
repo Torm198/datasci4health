@@ -282,12 +282,12 @@ Embora o meropenem atinja a parede celular, o estresse fisiológico resultante p
 ### Discussão
 A análise de rede revelou uma alta ortologia (identificada visualmente pelas "bolhas gigantes") entre os genomas de *Klebsiella*, *Pseudomonas* e *Acinetobacter*. No topo dessa topologia biológica, destaca-se o Eixo Ribossomal, caracterizado por uma super-representação massiva das famílias de genes estruturais **rpl** (subunidade 50S) e **rps** (subunidade 30S).
 
-Essa arquitetura evidencia uma fraqueza em comum: independentemente das táticas individuais de virulência de cada espécie, todas dependem criticamente de uma alta taxa de síntese proteica para montar suas respostas defensivas. Como conclusão terapêutica, o modelo valida que a inibição direcionada a esses alvos conservados é a chave para quebrar a resistência de amplo espectro.
+Essa arquitetura evidencia uma fraqueza em comum: independentemente das táticas individuais de virulência de cada espécie, todas dependem criticamente de uma alta taxa de síntese proteica para montar suas respostas defensivas. Como conclusão terapêutica, o modelo valida que a inibição direcionada a esses alvos conservados é a chave para quebrar a resistência de amplo espectro [^37].
 
 O modelo de combate simulado opera em um sistema de duplo impacto:
 
-* **O Ataque Primário:** O uso do beta-lactâmico (Meropenem) atua diretamente na ruptura das PBPs (Penicillin-Binding Proteins), fissurando a integridade da parede celular. Esse estresse mecânico e fisiológico força a bactéria a acionar emergencialmente seu maquinário de defesa sistêmica.  
-* **O Golpe Final:** Aproveitando a vulnerabilidade da parede celular desestruturada, ocorre a infiltração massiva dos inibidores de tradução. Uma vez no meio intracelular, eles travam de forma instantânea os alvos ortólogos superexpressos (*rpl/rps*), neutralizando a capacidade de resposta do patógeno.
+* **O Ataque Primário:** O uso do beta-lactâmico (Meropenem) atua diretamente na ruptura das PBPs (Penicillin-Binding Proteins), fissurando a integridade da parede celular. Esse estresse mecânico e fisiológico força a bactéria a acionar emergencialmente seu maquinário de defesa sistêmica [^5]. 
+* **O Golpe Final:** Aproveitando a vulnerabilidade da parede celular desestruturada, ocorre a infiltração massiva dos inibidores de tradução. Uma vez no meio intracelular, eles travam de forma instantânea os alvos ortólogos superexpressos (*rpl/rps*), neutralizando a capacidade de resposta do patógeno [^37].
 
 Contudo, os dados acenderam um alerta vermelho para o *Acinetobacter*. Esta espécie apresenta uma clara **fuga do dogma central** observado nas demais bactérias, desviando-se completamente dos grandes *hubs* hiperconectados da rede. Seus genes de maior *Impact Score* (indicador númeor de interações na rede ortológica e na base STRING), como o *A1S\_3075*, operam de forma isolada na base do gráfico, indicando uma independência estrutural única.  
 Essa assinatura reflete uma **tática de guerrilha metabólica**: para sobreviver, o *Acinetobacter* não gasta energia reprogramando grandes complexos proteicos; em vez disso, recruta enzimas autossuficientes e transportadores periféricos, garantindo sua defesa com o menor custo energético possível.
@@ -295,9 +295,9 @@ Essa assinatura reflete uma **tática de guerrilha metabólica**: para sobrevive
 Essa autonomia do *Acinetobacter* gera o **Paradoxo da Entrega**: embora o bloqueio ribossomal seja uma estratégia de amplo espectro poderosa, ele esbarra na impermeabilidade natural da membrana dessa bactéria. A repressão severa de porinas (nó *A1S\_0292/OmpW*) impede que o Meropenem cause a fissura necessária para a entrada dos outros fármacos.  
 Para solucionar esse impasse, o desenho terapêutico propõe três etapas sequenciais:
 
-* **Cavalo de Troia:** Substituição do vetor de entrada pelo Cefiderocol (cefalosporina siderófora), que sequestra o sistema de captação de ferro da própria bactéria para penetrar ativamente na célula, ignorando o fechamento das porinas.  
-* **Vetor de Ruptura Universal:** Uso combinado de Polimixinas ou Sideróforos para garantir uma ação mecânica de quebra de barreira que independe inteiramente de porinas ou de enzimas de resistência.  
-* **Bloqueio Ortólogo e Colapso Final:** Com as vias de acesso liberadas, os inibidores de tradução ligam-se irreversivelmente aos genes *rpl/rps*. Ao travar o maquinário de síntese proteica universal, o sistema induz a falência total das estratégias espécie-especificas: o escudo de trealose é perdido, o sistema de secreção Tipo VI (T6SS) é desativado e as bombas de efluxo entram em colapso definitivo.
+* **Cavalo de Troia:** Substituição do vetor de entrada pelo Cefiderocol (cefalosporina siderófora), que sequestra o sistema de captação de ferro da própria bactéria para penetrar ativamente na célula, ignorando o fechamento das porinas [^39].  
+* **Vetor de Ruptura Universal:** Uso combinado de Polimixinas ou Sideróforos para garantir uma ação mecânica de quebra de barreira que independe inteiramente de porinas ou de enzimas de resistência  [^40].  
+* **Bloqueio Ortólogo e Colapso Final:** Com as vias de acesso liberadas, os inibidores de tradução ligam-se irreversivelmente aos genes *rpl/rps*. Ao travar o maquinário de síntese proteica universal, o sistema induz a falência total das estratégias espécie-especificas: o escudo de trealose é perdido, o sistema de secreção Tipo VI (T6SS) é desativado e as bombas de efluxo entram em colapso definitivo [^37].
 
 ---
 
@@ -348,3 +348,9 @@ Os resultados deste trabalho geram hipóteses que exigem validação experimenta
 [^34]: Brencic, A., & Lory, S. (2009). Determination of the regulon and identification of novel targets of the Pseudomonas aeruginosa RsmA protein. Molecular Microbiology, 72(3), 612–632.
 [^35]: Taylor, P. K., et al. (2014). The Gac/Rsm and cyclic-di-GMP signalling networks coordinately regulate biofilm formation in Pseudomonas aeruginosa. BMC Microbiology, 14(1), 1–15.
 [^36]: Hall, C. W., & Mah, T. F. (2017). Molecular mechanisms of biofilm-based antibiotic resistance and tolerance in pathogenic bacteria. FEMS Microbiology Reviews, 41(3), 276–301.
+[^37]: Wilson DN. Ribosome-targeting antibiotics and mechanisms of bacterial resistance. Nat Rev Microbiol. 2014;12(1):35–48.
+
+[^39]: Ito A, Nishikawa T, Matsumoto S, Yoshizawa H, Sato T, Nakamura R, 
+et al. Siderophore cephalosporin cefiderocol utilizes ferric iron 
+transporter systems for antibacterial activity against *Pseudomonas 
+aeruginosa*. Antimicrob Agents Chemother. 2016;60(12):7396–401. 
